@@ -134,7 +134,7 @@ SELECT
 (SELECT id FROM branch WHERE name='Scranton Branch') as branch_id,
 (SELECT id FROM manager WHERE f_name='Michael' AND l_name='Scott') as manager_id,
 'Sales representative' as job_title, 
-'$50,000' as salary, 
+'50000' as salary, 
 '2018-01-02' as hire_date;
 
 INSERT INTO recipient (email, f_name, l_name, branch_id, manager_id, job_title, salary, hire_date)
@@ -145,7 +145,7 @@ SELECT
 (SELECT id FROM branch WHERE name='Scranton Branch') as branch_id,
 (SELECT id FROM manager WHERE f_name='Michael' AND l_name='Scott') as manager_id,
 'Sales representative' as job_title, 
-'$50,000' as salary, 
+'50000' as salary, 
 '2018-01-02' as hire_date;
 
 INSERT INTO recipient (email, f_name, l_name, branch_id, manager_id, job_title, salary, hire_date)
@@ -156,7 +156,7 @@ SELECT
 (SELECT id FROM branch WHERE name='Scranton Branch') as branch_id,
 (SELECT id FROM manager WHERE f_name='Michael' AND l_name='Scott') as manager_id,
 'Receptionist' as job_title, 
-'$45,000' as salary, 
+'45000' as salary, 
 '2018-01-02' as hire_date;
 
 -- award table test data --

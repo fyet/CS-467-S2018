@@ -32,10 +32,10 @@ iii.   If, for whatever reason, you want to set up the database through your ONI
 iv.    Login, go to "Web Database", and copy the ONID Database Settings into the config.php file. You can then connect to PHPMyAdmin with 
        your db credentials instead of mine. 
 
-The reason why we have a 'config.php' file is so that we can easily change the configuration of database without having to change code in all
-of our source codes. This way our source codes are portable, and if we decide to host the SQL server someplace else later we only have to update
-one file and our entire project will stil work. When writing queries on any of our web pages, please always connect to the db using the following 
-php excerpt:
+The reason why we have a 'config.php' file is so that we can easily change the configuration of database without having to change 
+code in all of our source codes. This way our source codes are portable, and if we decide to host the SQL server someplace else later
+we only have to update one file and our entire project will still work. When writing queries on any of our web pages, please always 
+connect to the db using the following php excerpt:
 
     require_once('config.php');             // this connects using the single set of credentials we have provided in config doc
     $query = "[query goes here]";               

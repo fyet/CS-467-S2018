@@ -37,9 +37,15 @@ code in all of our source codes. This way our source codes are portable, and if 
 we only have to update one file and our entire project will still work. When writing queries on any of our web pages, please always 
 connect to the db using the following php excerpt:
 
-    require_once('config.php');             // this connects using the single set of credentials we have provided in config doc
-    $query = "[query goes here]";               
-    $response = mysqli_query($dbc, $query);   
+    <?php
+      require_once('config.php');  // this connects using the single set of credentials we have provided in config doc
+      $query = "[query goes here]";               
+      $response = mysqli_query($dbc, $query);   
+    
+        // code here to handle response
+
+      mysqli_close($dbc) // close the connection we just instantiated 
+    ?>   
 
 I recommend we use 'mysqli'. Documentation can be found here: http://php.net/manual/en/book.mysqli.php. I wrote config in procedural but we can 
 go with object oriented if prefered. It doesnt matter to me. 
@@ -55,5 +61,3 @@ Note: I have hosted pages that show what is in our db so you dont have to sign i
                         |  recipient  | http://web.engr.oregonstate.edu/~fyet/db_recipient.php |
                         |  user       | http://web.engr.oregonstate.edu/~fyet/db_user.php      |
                         ------------------------------------------------------------------------
-
-

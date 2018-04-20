@@ -1,6 +1,4 @@
 
-
-
                                              *    Host Files through OSU/Set Up Test Environment    *
 
 Notes: Since we have chosen to use OSU's Apache webserver, we are constrained to our own test environments. We will not 
@@ -8,16 +6,16 @@ Notes: Since we have chosen to use OSU's Apache webserver, we are constrained to
        segregated between students. As such, our GitHub repository will be very important so we can all have access to, and work 
        with, the most updated versions of code eachother has. This document shares some general information with the group on 
        setting up test environments. Only one of us has to host our final version of the project so it can be graded. We will need 
-       to consolidate all of our respective sources in the “Camelopardalis Sources” directory so we have a single place where we can 
-       locate them. 
+       to find a clean way to consolidate all of our respective sources. I recommend we save all our sources in the "public_html"
+       directory so we have a single place where we can locate them. This will also make sense since our deployment to school 
+       servers (below) will be similar. 
 
 i.	    Go to https://it.engineering.oregonstate.edu/use-php-your-engr-web-pages and review instructions 
 ii.	    Clone the github repository to retrieve code locally (or pull to ensure local repository is up to date if already cloned)
 iii.	Open FTP client and connect to OSU’s servers 
-iv.	    Navigate to the “Camelopardalis Sources” directory within local git repository from FTP client
+iv.	    Navigate to the “public_html” directory within local git repository from FTP client
 v.	    Transfer all files to your “public_html” on school servers
-vi.	    Navigate to http://web.engr.oregonstate.edu/~[ONID]/[Filename.ext]
-
+vi.	    Navigate to http://web.engr.oregonstate.edu/~[ONID]/[Filename.ext] (Which ever page you are trying to hit. Probably will need to start at home page)
 
 
 

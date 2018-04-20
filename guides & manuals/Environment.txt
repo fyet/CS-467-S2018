@@ -15,7 +15,7 @@ ii.     Clone the github repository to retrieve code locally (or pull to ensure 
 iii.    Open FTP client and connect to OSU’s servers 
 iv.     Navigate to the “public_html” directory within local git repository from FTP client
 v.      Transfer all files to your “public_html” on school servers
-vi.     Navigate to http://web.engr.oregonstate.edu/~[ONID]/[Filename.ext] (Which ever page you are trying to hit. Probably will need to start at home page)
+vi.     Navigate to http://web.engr.oregonstate.edu/~[ONID]/[Filename.ext] (Probably will need to start at home page)
 
 
 
@@ -26,11 +26,12 @@ Notes: Much like OSU's configurations around Apache and PHP, there are also rest
        can just use mine. **Please do not delete any of my other tables. Their existance doesn't hurt our project, and I have projects 
        from other classes that still rely on some of these tables**.
 
-i.     To access PHPMyAdmin, go to https://secure.oregonstate.edu/oniddb/. 
+i.     To access PHPMyAdmin, go to https://secure.oregonstate.edu/oniddb/ 
 ii.    See the config.php file in “public_html” on GitHub repo for credentials
 iii.   If, for whatever reason, you want to set up the database through your ONID instead of mine, go here: http://onid.oregonstate.edu/ 
-iv.    Login, go to "Web Database", and copy the ONID Database Settings into the config.php file. You can then connect to PHPMyAdmin with 
-       your db credentials instead of mine. 
+iv.    Login, go to "Web Database", and copy the ONID Database Settings into the config.php file. 
+v.     You can then login to PHPMyAdmin (https://secure.oregonstate.edu/oniddb/) with your db credentials instead of mine
+vi.    Don't forget to run the "db.sql" in the GitHub "database (.sql)" directory in your PHPMyAdmin to create the tables  
 
 The reason why we have a 'config.php' file is so that we can easily change the configuration of database without having to change 
 code in all of our source codes. This way our source codes are portable, and if we decide to host the SQL server someplace else later
@@ -47,8 +48,8 @@ connect to the db using the following php excerpt:
       mysqli_close($dbc) // close the connection we just instantiated 
     ?>   
 
-I recommend we use 'mysqli'. Documentation can be found here: http://php.net/manual/en/book.mysqli.php. I wrote config in procedural but we can 
-go with object oriented if prefered. It doesnt matter to me. 
+I recommend we use 'mysqli'. Documentation can be found here: http://php.net/manual/en/book.mysqli.php. I wrote config in procedural 
+but we can go with object oriented if prefered. It doesnt matter to me. 
 
 Note: I have hosted pages that show what is in our db so you dont have to sign in through PHPMyAdmin. The landing pages are: 
 

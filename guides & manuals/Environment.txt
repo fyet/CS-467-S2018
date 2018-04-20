@@ -12,7 +12,7 @@ Notes: Since we have chosen to use OSU's Apache webserver, we are constrained to
 
 i.	    Go to https://it.engineering.oregonstate.edu/use-php-your-engr-web-pages and review instructions 
 ii.	    Clone the github repository to retrieve code locally (or pull to ensure local repository is up to date if already cloned)
-iii.	Open FTP client and connect to OSU’s servers 
+iii.	    Open FTP client and connect to OSU’s servers 
 iv.	    Navigate to the “public_html” directory within local git repository from FTP client
 v.	    Transfer all files to your “public_html” on school servers
 vi.	    Navigate to http://web.engr.oregonstate.edu/~[ONID]/[Filename.ext] (Which ever page you are trying to hit. Probably will need to start at home page)

@@ -4,7 +4,7 @@
 Notes: Since we have chosen to use OSU's Apache webserver, we are constrained to our own test environments. We will not 
        have access to a shared test environment or a shared production environment. The systems administrators keep everything 
        segregated between students. As such, our GitHub repository will be very important so we can all have access to, and work 
-       with, the most updated versions of code eachother has. This document shares some general information with the group on 
+       with, the most updated versions of code each other has. This document shares some general information with the group on 
        setting up test environments. Only one of us has to host our final version of the project so it can be graded. We will need 
        to find a clean way to consolidate all of our respective sources. I recommend we save all our sources in the "public_html"
        directory so we have a single place where we can locate them. This will also translate well with deployment to school 

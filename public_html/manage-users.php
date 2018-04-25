@@ -16,14 +16,14 @@
   <!-- *************************************************************************
                               top horizontal navbar
   ************************************************************************** -->
-  <?php echo file_get_contents("components/navbar.php"); ?>
+  <?php include("components/navbar.php"); ?>
   <!-- Sidebar and page content wrappers -->
   <div class="container-fluid">
     <div class="row">
       <!-- *********************************************************************
                                   responsive sidebar
       ********************************************************************** -->
-      <?php echo file_get_contents("components/sidebar.php"); ?>
+      <?php include("components/sidebar.php"); ?>
       <!-- *********************************************************************
                                     page content
       ********************************************************************** -->
@@ -42,10 +42,10 @@
             </div>
           </div>
         </div>
-        <!-- current users table -->
+        <!-- database-generated users table -->
         <div class="row">
           <div class="col-xl">
-            <p class="h3">AwardHub Users</p>
+            <p class="h3">AwardHub Users (from DB)</p>
             <div class="table-responsive">
               <table class="table table-hover">
                 <thead class="thead-dark">
@@ -58,80 +58,44 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Andy</td>
-                    <td>Bernard</td>
-                    <td>abernard@dundermifflin.com</td>
-                    <td>
-                      <button type="button"
-                            class="btn btn-secondary btn-sm active"
-                            float="right"
-                            data-toggle="modal"
-                            data-target="#editUserModal">
-                            Edit
-                      </button>
-                    </td>
-                    <td>
-                      <button type="button"
-                            class="btn btn-danger btn-sm active"
-                            float="right"
-                            data-toggle="modal"
-                            data-target="#deleteUserModal">
-                            Delete
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Dwight</td>
-                    <td>Schute</td>
-                    <td>dschrute@dundermifflin.com</td>
-                    <td>
-                      <button type="button"
-                            class="btn btn-secondary btn-sm active"
-                            float="right"
-                            data-toggle="modal"
-                            data-target="#editUserModal">
-                            Edit
-                      </button>
-                    </td>
-                    <td>
-                      <button type="button"
-                            class="btn btn-danger btn-sm active"
-                            float="right"
-                            data-toggle="modal"
-                            data-target="#deleteUserModal">
-                            Delete
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Pam</td>
-                    <td>Beasley</td>
-                    <td>pbeasley@dundermifflin.com</td>
-                    <td>
-                      <button type="button"
-                            class="btn btn-secondary btn-sm active"
-                            float="right"
-                            data-toggle="modal"
-                            data-target="#editUserModal">
-                            Edit
-                      </button>
-                    </td>
-                    <td>
-                      <button type="button"
-                            class="btn btn-danger btn-sm active"
-                            float="right"
-                            data-toggle="modal"
-                            data-target="#deleteUserModal">
-                            Delete
-                      </button>
-                    </td>
-                  </tr>
+                  <?php
+                  require_once('config.php');
+                  $query = "SELECT f_name, l_name, email FROM user WHERE account_type='standard'";
+                  $response = mysqli_query($dbc, $query);
+
+                  while($row = mysqli_fetch_assoc($response)){
+                      echo "<tr>
+                      <td> {$row['f_name']} </td>
+                      <td> {$row['l_name']} </td>
+                      <td> {$row['email']} </td>
+                      <td>
+                        <button type='button'
+                              class='btn btn-secondary btn-sm active'
+                              float='right'
+                              data-toggle='modal'
+                              data-target='#editUserModal'>
+                              Edit
+                        </button>
+                      </td>
+                      <td>
+                        <button type='button'
+                              class='btn btn-danger btn-sm active'
+                              float='right'
+                              data-toggle='modal'
+                              data-target='#deleteUserModal'>
+                              Delete
+                        </button>
+                      </td>
+                      </tr>";
+                    }
+                    mysqli_close($dbc);
+                  ?>
                 </tbody>
               </table>
             </div>
           </div>
         </div>
+        <!-- end users table -->
       </div>
     </div>
   </div> <!-- End sidebar and page content -->

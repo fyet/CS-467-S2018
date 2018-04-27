@@ -45,7 +45,7 @@
         <!-- database-generated users table -->
         <div class="row">
           <div class="col-xl">
-            <p class="h3">AwardHub Users (from DB)</p>
+            <p class="h3">AwardHub Users</p>
             <div class="table-responsive">
               <table class="table table-hover">
                 <thead class="thead-dark">

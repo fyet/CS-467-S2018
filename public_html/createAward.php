@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <? php session_start(); ?>
 
     <title>Create Award</title>
     <!-- Meta Tags for Bootstrap -->
@@ -24,11 +23,18 @@
 <body>
 
   <?php
-        $my_array = array(
-          1=>"Employee of The Month", 
-          2=>"Employee of The Year", 
-          3=>"Employee of The Week", 
-          4=>"Best Dressed");
+    session_start();
+    require_once('config.php');
+
+    $my_array = array("Employee of The Month", 
+      "Employee of The Year", 
+      "Employee of The Week", 
+      "Best Dressed");
+
+    $key = $_SESSION["recipE"];
+    $query = "SELECT email, f_name, l_name FROM recipient WHERE email LIKE '" . $key . "'";
+    $result = mysqli_query($dbc, $query);
+    $row = mysqli_fetch_assoc($result);
   ?>
 
       <nav class="navbar navbar-light bg-light">
@@ -59,8 +65,8 @@
         <div class="form-group col-sm">
           <label for="typeAward">Type of Award:</label>
           <select class="form-control" id="typeAward" name="typeAward">
-              <?php foreach($my_array as $key => $value) { ?>
-                <option value="<?php echo $key ?>"><?php echo $value ?> </option>
+              <?php foreach($my_array as $item) { ?>
+                <option value="<?php echo $item; ?>"><?php echo $item; ?> </option>
               <?php }?>
           </select>
         </div>
@@ -76,7 +82,7 @@
                 type="text" 
                 id="recipEmail" 
                 name="recipEmail" 
-                value="<?php echo $_SESSION['recipE']; ?>"
+                value="<?php echo $row['email']; ?>"
                 readonly>
         </div>
       </div>
@@ -87,7 +93,7 @@
                 type="text" 
                 id="recipFName" 
                 name="recipFName" 
-                placeholder="Somebody" 
+                value="<?php echo $row['f_name'] ?>" 
                 readonly>
         </div>
         <div class="form-group col-sm">
@@ -96,11 +102,13 @@
                 type="text"
                 id="recipLName"
                 name="recipLName"
-                placeholder="Smith"
+                value="<?php echo $row['l_name'] ?>"
                 readonly>
           </div>
         </div>
         <button type="submit" class="btn btn-primary">Submit Award</button>
     </form>
   </div>
+
+  <?php mysqli_close($dbc); ?>
 </body>

@@ -29,7 +29,7 @@
       ********************************************************************** -->
       <div class="col-sm-12 page-content">
         <!-- navigation cards -->
-        <div class="row">
+        <div class="row" style="padding: 20px 0px;">
           <div class="card-deck">
             <a href="manage-users.php">
               <div class="card border-light mb-3">
@@ -75,6 +75,33 @@
             </a>
           </div>
         </div>
+        <!-- database-generated activity log -->
+        <div class="row">
+          <div class="col-xl">
+            <p class="h3">Activity Log</p>
+            <div class="table-responsive">
+              <table class="table table-hover table-sm">
+                <tbody>
+                  <?php
+                  require_once('config.php');
+                  $query = "SELECT award.accolade_date, user.f_name AS 'uf_name', user.l_name AS 'ul_name', award.accolade_type, recipient.f_name AS 'rf_name', recipient.l_name AS 'rl_name' FROM ((award INNER JOIN recipient ON award.recipient_id = recipient.id) INNER JOIN user ON award.user_id = user.id);";
+                  $response = mysqli_query($dbc, $query);
+                  while($row = mysqli_fetch_assoc($response)){
+                      echo "<tr>
+                      <td><i>{$row['accolade_date']}</i></td>
+                      <td>
+                        <p>{$row['uf_name']} {$row['ul_name']} awarded \"{$row['accolade_type']}\" to {$row['rf_name']} {$row['rl_name']}</p>
+                      </td>
+                      </tr>";
+                    }
+                    mysqli_close($dbc);
+                  ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- end activity log -->
       </div>
     </div>
   </div> <!-- End sidebar and page content -->

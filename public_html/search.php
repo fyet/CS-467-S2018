@@ -17,6 +17,7 @@ if (mysqli_num_rows($result) > 0) {
     
 }
 else {
+    $_SESSION['recipE'] = $key;
     header('Location: addRecipient.php');
 }
 

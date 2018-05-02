@@ -84,7 +84,16 @@
                 <tbody>
                   <?php
                   require_once('config.php');
-                  $query = "SELECT award.accolade_date, user.f_name AS 'uf_name', user.l_name AS 'ul_name', award.accolade_type, recipient.f_name AS 'rf_name', recipient.l_name AS 'rl_name' FROM ((award INNER JOIN recipient ON award.recipient_id = recipient.id) INNER JOIN user ON award.user_id = user.id);";
+
+                  $query = "SELECT award.accolade_date,
+                                   user.f_name AS 'uf_name',
+                                   user.l_name AS 'ul_name',
+                                   award.accolade_type,
+                                   recipient.f_name AS 'rf_name',
+                                   recipient.l_name AS 'rl_name' FROM ((award
+                  INNER JOIN recipient ON award.recipient_id = recipient.id)
+                  INNER JOIN user ON award.user_id = user.id);";
+
                   $response = mysqli_query($dbc, $query);
                   while($row = mysqli_fetch_assoc($response)){
                       echo "<tr>

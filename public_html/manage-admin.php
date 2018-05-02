@@ -55,10 +55,10 @@
                     <th scope="col"></th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="adminTableBody">
                   <?php
                   require_once('config.php');
-                  $query = "SELECT email FROM user WHERE account_type='admin'";
+                  $query = "SELECT id, email FROM user WHERE account_type='admin'";
                   $response = mysqli_query($dbc, $query);
 
                   while($row = mysqli_fetch_assoc($response)){
@@ -69,7 +69,9 @@
                               class='btn btn-secondary btn-sm active'
                               float='right'
                               data-toggle='modal'
-                              data-target='#editAdminModal'>
+                              data-target='#editAdminModal'
+                              data-id={$row['id']}
+                              data-email={$row['email']}>
                               Edit
                         </button>
                       </td>
@@ -78,7 +80,9 @@
                               class='btn btn-danger btn-sm active'
                               float='right'
                               data-toggle='modal'
-                              data-target='#deleteAdminModal'>
+                              data-target='#deleteAdminModal'
+                              data-id={$row['id']}
+                              data-email={$row['email']}>
                               Delete
                         </button>
                       </td>
@@ -125,7 +129,7 @@
               <button type="button" class="btn btn-secondary btn-sm mr-auto" data-dismiss="modal">
                 Exit without saving changes
               </button>
-              <button type="submit" class="btn btn-primary btn-sm">
+              <button id="submitNewAdmin" type="button" class="btn btn-primary btn-sm">
                 Submit new administrator
               </button>
             </div>
@@ -158,17 +162,17 @@
               <label for="adminEmail">Email address</label>
               <input  type="email"
                       class="form-control"
-                      id="adminEmail"
-                      aria-describedby="emailHelp"
-                      placeholder="Enter email">
+                      id="adminEmailToEdit"
+                      aria-describedby="emailHelp">
             </div>
+            <input id="editID" style="visiblity: hidden;">
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary btn-sm mr-auto" data-dismiss="modal">
             Exit without saving changes
           </button>
-          <button type="button" class="btn btn-primary btn-sm">
+          <button type="button" class="btn btn-primary btn-sm" id="submitEdit">
             Update
           </button>
         </div>
@@ -196,14 +200,15 @@
         </div>
         <div class="modal-body text-center">
           <p>You have selected to permanently delete the AwardHub administrative account of:</p>
-          <h4>example@email.com</h4>
+          <h4></h4>
           <p>Are you sure you want to delete this account?</p>
+          <input id="deleteID" style="visiblity: hidden;"> <!-- Holds admin id -->
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary btn-sm mr-auto" data-dismiss="modal">
             No, exit without saving changes
           </button>
-          <button type="button" class="btn btn-primary btn-sm">
+          <button type="button" class="btn btn-primary btn-sm" id="submitDelete">
             Yes, delete the selected account
           </button>
         </div>
@@ -212,9 +217,10 @@
   </div>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <!-- Add custom scripts below-->
+  <!-- Add custom scripts below -->
+  <script type="text/javascript" src="scripts/manageAdmin.js"></script>
 </body>
 </html>

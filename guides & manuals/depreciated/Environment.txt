@@ -1,0 +1,64 @@
+
+                                             *    Host Files through OSU/Set Up Test Environment    *
+
+Notes: Since we have chosen to use OSU's Apache webserver, we are constrained to our own test environments. We will not 
+       have access to a shared test environment or a shared production environment. The systems administrators keep everything 
+       segregated between students. As such, our GitHub repository will be very important so we can all have access to, and work 
+       with, the most updated versions of code each other has. This document shares some general information with the group on 
+       setting up test environments. Only one of us has to host our final version of the project so it can be graded. We will need 
+       to find a clean way to consolidate all of our respective sources. I recommend we save all our sources in the "public_html"
+       directory so we have a single place where we can locate them. This will also translate well with deployment to school 
+       servers (below). 
+
+i.      Go to https://it.engineering.oregonstate.edu/use-php-your-engr-web-pages and review instructions 
+ii.     Clone the github repository to retrieve code locally (or pull to ensure local repository is up to date if already cloned)
+iii.    Open FTP client and connect to OSU’s servers 
+iv.     Navigate to the “public_html” directory within local git repository from FTP client
+v.      Transfer all files to your “public_html” on school servers
+vi.     Navigate to http://web.engr.oregonstate.edu/~[ONID]/[Filename.ext] (Probably will need to start at home page)
+
+
+
+                                                              *    Database    *
+
+Notes: Much like OSU's configurations around Apache and PHP, there are also restrictions/controls in place regarding MySQL. We are not 
+       able to instantiate a group db on school servers. They limit each student to one ONID Web Database with PHPMyAdmin access. We
+       can just use mine. **Please do not delete any of my other tables. Their existance doesn't hurt our project, and I have projects 
+       from other classes that still rely on some of these tables**.
+
+i.     To access PHPMyAdmin, go to https://secure.oregonstate.edu/oniddb/ 
+ii.    See the config.php file in “public_html” on GitHub repo for credentials
+iii.   If, for whatever reason, you want to set up the database through your ONID instead of mine, go here: http://onid.oregonstate.edu/ 
+iv.    Login, go to "Web Database", and copy the ONID Database Settings into the config.php file. 
+v.     You can then login to PHPMyAdmin (https://secure.oregonstate.edu/oniddb/) with your db credentials instead of mine
+vi.    Don't forget to run the "db.sql" in the GitHub "database (.sql)" directory in your PHPMyAdmin to create the tables  
+
+The reason why we have a 'config.php' file is so that we can easily change the configuration of database without having to change 
+code in all of our source codes. This way our source codes are portable, and if we decide to host the SQL server someplace else later
+we only have to update one file and our entire project will still work. When writing queries on any of our web pages, please always 
+connect to the db using the following php excerpt:
+
+    <?php
+      require_once('config.php');  // this connects using the single set of credentials we have provided in config doc
+      $query = "[query goes here]";               
+      $response = mysqli_query($dbc, $query);   
+    
+        // code here to handle response
+
+      mysqli_close($dbc) // close the connection we just instantiated 
+    ?>   
+
+I recommend we use 'mysqli'. Documentation can be found here: http://php.net/manual/en/book.mysqli.php. I wrote config in procedural 
+but we can go with object oriented if prefered. It doesnt matter to me. 
+
+Note: I have hosted pages that show what is in our db so you dont have to sign in through PHPMyAdmin. The landing pages are: 
+
+                        -----------------------------------------------------------------------
+                        |  DB Table   |                         Link                           |
+                        -----------------------------------------------------------------------|
+                        |  award      | http://web.engr.oregonstate.edu/~fyet/db_award.php     | 
+                        |  branch     | http://web.engr.oregonstate.edu/~fyet/db_branch.php    | 
+                        |  manager    | http://web.engr.oregonstate.edu/~fyet/db_manager.php   | 
+                        |  recipient  | http://web.engr.oregonstate.edu/~fyet/db_recipient.php |
+                        |  user       | http://web.engr.oregonstate.edu/~fyet/db_user.php      |
+                        ------------------------------------------------------------------------

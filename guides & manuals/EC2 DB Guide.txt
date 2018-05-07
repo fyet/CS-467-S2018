@@ -1,4 +1,4 @@
-                * PHP My Admin * 
+                                                        * PHP My Admin * 
 
 1. Go to http://18.188.194.159/phpmyadmin/
 
@@ -8,7 +8,7 @@ Username: root
 Password: camelopardalis
 
 
-		* mysql from command line * 
+		                                     * mysql from command line * 
 
 1. SSH into EC2 Instance
 

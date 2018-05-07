@@ -128,7 +128,7 @@ VALUES ('Michael','Scott','Sales');
 -- recipient table test data --
 INSERT INTO recipient (email, f_name, l_name, branch_id, manager_id, job_title, salary, hire_date)
 SELECT 
-'shudson@dunermifflin.com' as email,
+'shudson@dundermifflin.com' as email,
 'Stanley' as f_name,
 'Hudson' as l_name,
 (SELECT id FROM branch WHERE name='Scranton Branch') as branch_id,
@@ -139,7 +139,7 @@ SELECT
 
 INSERT INTO recipient (email, f_name, l_name, branch_id, manager_id, job_title, salary, hire_date)
 SELECT 
-'abernard@dunermifflin.com' as email,
+'abernard@dundermifflin.com' as email,
 'Andy' as f_name,
 'Bernard' as l_name,
 (SELECT id FROM branch WHERE name='Scranton Branch') as branch_id,
@@ -150,7 +150,7 @@ SELECT
 
 INSERT INTO recipient (email, f_name, l_name, branch_id, manager_id, job_title, salary, hire_date)
 SELECT 
-'pbeesly@dunermifflin.com' as email,
+'pbeesly@dundermifflin.com' as email,
 'Pam' as f_name,
 'Beesly' as l_name,
 (SELECT id FROM branch WHERE name='Scranton Branch') as branch_id,
@@ -165,18 +165,18 @@ SELECT
 '2018-01-02' as accolade_date,
 'Employee of the Month' as accolade_type,
 (SELECT id FROM user WHERE email='jhalpert@dundermifflin.com') as user_id,
-(SELECT id FROM recipient WHERE email='pbeesly@dunermifflin.com') as recipient_id;
+(SELECT id FROM recipient WHERE email='pbeesly@dundermifflin.com') as recipient_id;
 
 INSERT INTO award (accolade_date, accolade_type, user_id, recipient_id)
 SELECT 
 '2018-02-02' as accolade_date,
 'Employee of the Month' as accolade_type,
 (SELECT id FROM user WHERE email='mscott@dundermifflin.com') as user_id,
-(SELECT id FROM recipient WHERE email='abernard@dunermifflin.com') as recipient_id;
+(SELECT id FROM recipient WHERE email='abernard@dundermifflin.com') as recipient_id;
 
 INSERT INTO award (accolade_date, accolade_type, user_id, recipient_id)
 SELECT 
 '2018-03-02' as accolade_date,
 'Employee of the Month' as accolade_type,
 (SELECT id FROM user WHERE email='amartin@dundermifflin.com') as user_id,
-(SELECT id FROM recipient WHERE email='shudson@dunermifflin.com') as recipient_id;
+(SELECT id FROM recipient WHERE email='shudson@dundermifflin.com') as recipient_id;

@@ -28,70 +28,112 @@
                                     page content
       ********************************************************************** -->
       <div class="col-sm-12 page-content">
-        <!-- column chart -->
-        <div class="row" id="chart_div" style="width: 800px; height: 500px;"></div>
+        <div class="row">
+          <div class="col-xl">
+            <p class="h3">Business Insights</p>
+          </div>
+        </div>
+        <div class="card-deck">
+          <a href="admin-biz-awards-by-user.php">
+            <div class="card border-light text-white bg-success mb-3">
+              <div class="card-wrapper">
+                <div class="card-header text-center">View Awards Given by User</div>
+                <div class="card-body">
+                  <p class="card-text">
+                    <ul>
+                      <li>Generate customizable, exportable graphs of awards given by AwardHub users</li>
+                      <li>Generate reports based on custom filters and export as CSV files</li>
+                    </ul>
+                  </p>
+                </div>
+              </div> <!-- end card wrapper -->
+            </div>
+          </a>
+          <a href="#">
+            <div class="card border-light text-white bg-success mb-3">
+              <div class="card-wrapper">
+                <div class="card-header text-center">View Awards Recieved By Individuals</div>
+                <div class="card-body">
+                  <p class="card-text">
+                    <ul>
+                      <li>Generate customizable, exportable graphs of awards received by individuals</li>
+                      <li>Compare salaries of award recipients to industry averages for the region</li>
+                      <li>Generate reports based on custom filters and export as CSV files</li>
+                    </ul>
+                  </p>
+                </div>
+              </div> <!-- end card wrapper -->
+            </div>
+          </a>
+          <a href="#">
+            <div class="card border-light text-white bg-success mb-3">
+              <div class="card-wrapper">
+                <div class="card-header text-center">View Awards Received by Departments</div>
+                <div class="card-body">
+                  <p class="card-text">
+                    <ul>
+                      <li>Generate customizable, exportable graphs of awards received by departments</li>
+                      <li>Generate reports based on custom filters and export as CSV files</li>
+                    </ul>
+                  </p>
+                </div>
+              </div> <!-- end card wrapper -->
+            </div>
+          </a>
+          <a href="#">
+            <div class="card border-light text-white bg-success mb-3">
+              <div class="card-wrapper">
+                <div class="card-header text-center">View Awards Received by Managers' Employees</div>
+                <div class="card-body">
+                  <p class="card-text">
+                    <ul>
+                      <li>Generate customizable, exportable graphs of awards received by a given manager's employees</li>
+                      <li>Generate reports based on custom filters and export as CSV files</li>
+                    </ul>
+                  </p>
+                </div>
+              </div> <!-- end card wrapper -->
+            </div>
+          </a>
+          <a href="#">
+            <div class="card border-light text-white bg-success mb-3">
+              <div class="card-wrapper">
+                <div class="card-header text-center">View Awards Received by Region</div>
+                <div class="card-body">
+                  <p class="card-text">
+                    <ul>
+                      <li>Generate customizable, exportable graphs of awards received by region</li>
+                      <li>Generate reports based on custom filters and export as CSV files</li>
+                    </ul>
+                  </p>
+                </div>
+              </div> <!-- end card wrapper -->
+            </div>
+          </a>
+          <a href="#">
+            <div class="card border-light text-white bg-success mb-3">
+              <div class="card-wrapper">
+                <div class="card-header text-center">View Awards Recieved by Branch Location</div>
+                <div class="card-body">
+                  <p class="card-text">
+                    <ul>
+                      <li>Generate customizable, exportable graphs of awards received by branch location</li>
+                      <li>Generate reports based on custom filters and export as CSV files</li>
+                    </ul>
+                  </p>
+                </div>
+              </div> <!-- end card wrapper -->
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </div> <!-- End sidebar and page content -->
-  <!-- Optional JavaScript -->
+
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <!-- Google Charts library -->
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-  <script type="text/javascript">
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
-
-    function drawChart() {
-      // Create an empty data table
-      var data = new google.visualization.DataTable();
-
-      // Add column headings manually
-      data.addColumn('string', 'Last Name');
-      data.addColumn('number', 'Salary');
-
-
-      //Get data from BLS(TEST)
-      /*var blsData = $.ajax({
-        url: "BLSdata.php",
-        dataType: "json",
-        async: false
-      }).responseText;
-      console.log(blsData);*/
-
-      // Get row data from AwardHub DB
-      var jsonData = $.ajax({
-        url: "recipientData.php",
-        dataType: "json",
-        async: false
-      }).responseText;
-      //console.log(jsonData);
-      //Convert json string to array of objects
-      var obj = JSON.parse(jsonData);
-      var rowData = [];
-      for (var i = 0; i < obj.length; i++) {
-        var nextRow = [obj[i].l_name, Number(obj[i].salary)];
-        rowData.push(nextRow);
-      }
-      //Add db data to DataTable
-      data.addRows(rowData);
-      //Set chart options
-      var options = {
-              title: "Salaries of Award Recipients",
-              width: 800,
-              height: 500,
-              bar: {groupWidth: "95%"},
-              legend: { position: "none" },
-      };
-      // Instantiate and draw our chart, passing in some options.
-      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-      chart.draw(data, options);
-      }
-
-  </script>
   <!-- Add custom scripts below-->
 </body>
 </html>

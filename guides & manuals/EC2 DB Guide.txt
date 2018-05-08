@@ -1,0 +1,48 @@
+                                                        * PHP My Admin * 
+
+1. Go to http://18.188.194.159/phpmyadmin/
+
+2. Enter the credentials below:
+
+Username: root
+Password: camelopardalis
+
+
+		                                     * mysql from command line * 
+
+1. SSH into EC2 Instance
+
+2. Enter the command “mysql –u root –p”
+
+3. Enter the password: camelopardalis
+The database to connect to is titled “camelopardalis”. The schema is available in our shared google drive folder
+
+The reason why we have a 'config.php' file is so that we can easily change the configuration of database without having to change 
+code in all of our source codes. This way our source codes are portable, and if we decide to host the SQL server someplace else later
+we only have to update one file and our entire project will still work. When writing queries on any of our web pages, please always 
+connect to the db using the following php excerpt:
+
+    <?php
+      require_once('config.php');  // this connects using the single set of credentials we have provided in config doc
+      $query = "[query goes here]";               
+      $response = mysqli_query($dbc, $query);   
+    
+        // code here to handle response
+
+      mysqli_close($dbc) // close the connection we just instantiated 
+    ?>   
+
+I recommend we use 'mysqli'. Documentation can be found here: http://php.net/manual/en/book.mysqli.php. I wrote config in procedural 
+but we can go with object oriented if prefered. It doesnt matter to me. 
+
+Note: I have hosted pages that show what is in our db so you dont have to sign in through PHPMyAdmin. The landing pages are: 
+
+                        --------------------------------------------------------
+                        |  DB Table   |                 Link                   |
+                        -------------------------------------------------------|
+                        |  award      | http://18.188.194.159/db_award.php     | 
+                        |  branch     | http://18.188.194.159/db_branch.php    | 
+                        |  manager    | http://18.188.194.159/db_manager.php   | 
+                        |  recipient  | http://18.188.194.159/db_recipient.php |
+                        |  user       | http://18.188.194.159/db_user.php      |
+                        --------------------------------------------------------

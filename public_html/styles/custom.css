@@ -2,7 +2,26 @@ body {
   padding-top: 50px;
 }
 
-/* Sidebar */
+/************** start mobile/general card styling *******************/
+.card-deck {
+  margin-top: 10px;
+}
+
+.card {
+  min-width: 300px;
+  max-width: 500px;
+}
+
+.card-wrapper:hover {
+  background-color: rgba(0, 0, 0, 0.3); /*darken on hover*/
+}
+
+.card-body {
+  display: none;
+}
+/************** end mobile/general card styling **********************/
+
+/************** start mobile/general sidebar styling *****************/
 #sidebar { /*mobile version*/
     position: fixed;
     top: 51px;
@@ -11,6 +30,7 @@ body {
     z-index: 1000;
     display: block;
     padding-top: 5px;
+    margin-bottom: 50px;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
     background-color: #f5f5f5;
@@ -31,7 +51,24 @@ body {
 #sidebar a {
   width: 50px;
 }
-@media (min-width: 768px) { /*desktop verions*/
+/************** end mobile/general sidebar styling *****************/
+
+.page-content {
+  padding-right: 15px;
+  padding-left: 65px;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+/************** start mobile/general bottom report nav styling *****/
+#reportControls {
+  padding-right: 15px;
+  padding-left: 65px;
+}
+/************** end mobile/general bottom report nav styling *****/
+
+
+@media (min-width: 860px) { /*desktop version*/
     #sidebar {
         padding-top: 20px;
         width: 170px;
@@ -47,17 +84,16 @@ body {
     #sidebar .sidebar-text {
       display: block;
     }
-}
-
-.page-content { /*mobile version*/
-  padding-right: 15px;
-  padding-left: 65px;
-}
-
-@media (min-width: 768px) { /*desktop version*/
-  .page-content {
-    padding-top: 20px;
-    padding-right: 40px;
-    padding-left: 210px;
-  }
+    .card-body {
+      display: initial;
+    }
+    .page-content {
+      padding-top: 40px;
+      padding-right: 40px;
+      padding-left: 210px;
+    }
+    #reportControls {
+      padding-right: 40px;
+      padding-left: 210px;
+    }
 }

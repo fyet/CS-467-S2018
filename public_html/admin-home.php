@@ -28,51 +28,64 @@
                                     page content
       ********************************************************************** -->
       <div class="col-sm-12 page-content">
+        <div class="row">
+          <div class="col-xl">
+            <p class="h3">AwardHub Admin Home</p>
+          </div>
+        </div>
         <!-- navigation cards -->
-        <div class="row" style="padding: 20px 0px;">
-          <div class="card-deck">
-            <a href="manage-users.php">
-              <div class="card border-light mb-3">
-                <div class="card-header">Manage Users</div>
-                <div class="card-body">
-                  <p class="card-text">
-                    <ul>
-                      <li>add new user</li>
-                      <li>edit existing users</li>
-                      <li>delete existing users</li>
-                    </ul>
-                  </p>
+        <div class="row">
+          <div class="col-xl">
+            <div class="card-deck">
+              <a href="manage-users.php">
+                <div class="card border-light text-white bg-primary mb-3">
+                  <div class="card-wrapper">
+                    <div class="card-header">Manage Users</div>
+                    <div class="card-body">
+                      <p class="card-text">
+                        <ul>
+                          <li>add new user</li>
+                          <li>edit existing users</li>
+                          <li>delete existing users</li>
+                        </ul>
+                      </p>
+                    </div>
+                  </div> <!-- end card wrapper -->
                 </div>
-              </div>
-            </a>
-            <a href="manage-admin.php">
-              <div class="card border-light mb-3">
-                <div class="card-header">Manage Administrators</div>
-                <div class="card-body">
-                  <p class="card-text">
-                    <ul>
-                      <li>add new administrator</li>
-                      <li>edit existing administrators</li>
-                      <li>delete existing administrators</li>
-                    </ul>
-                  </p>
+              </a>
+              <a href="manage-admin.php">
+                <div class="card border-light text-white bg-primary mb-3">
+                  <div class="card-wrapper">
+                    <div class="card-header">Manage Administrators</div>
+                    <div class="card-body">
+                      <p class="card-text">
+                        <ul>
+                          <li>add new administrator</li>
+                          <li>edit existing administrators</li>
+                          <li>delete existing administrators</li>
+                        </ul>
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </a>
-            <a href="#">
-              <div class="card border-light mb-3">
-                <div class="card-header">Business Insights</div>
-                <div class="card-body">
-                  <p class="card-text">
-                    <ul>
-                      <li>run database queries</li>
-                      <li>export data to CSV file</li>
-                      <li>generate graphs</li>
-                    </ul>
-                  </p>
+              </a>
+              <a href="#">
+                <div class="card border-light text-white bg-primary mb-3">
+                  <div class="card-wrapper">
+                    <div class="card-header">Business Insights</div>
+                    <div class="card-body">
+                      <p class="card-text">
+                        <ul>
+                          <li>run database queries</li>
+                          <li>export data to CSV file</li>
+                          <li>generate graphs</li>
+                        </ul>
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </a>
+              </a>
+            </div>
           </div>
         </div>
         <!-- database-generated activity log -->

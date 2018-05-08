@@ -29,7 +29,7 @@
       ********************************************************************** -->
       <div class="col-sm-12 page-content">
         <!-- add new user button -->
-        <div class="row" style="padding: 20px 0px;">
+        <div class="row">
           <div class="col-xl">
             <div class="float-right">
               <button type="button"

@@ -60,6 +60,14 @@ body {
   padding-bottom: 50px;
 }
 
+/************** start chart styling *****************/
+.chart {
+  width: 100%;
+  min-height: 450px;
+}
+/************** end chart styling *****************/
+
+
 /************** start mobile/general bottom report nav styling *****/
 #reportControls {
   padding-right: 15px;

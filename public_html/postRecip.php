@@ -25,4 +25,8 @@ mysqli_stmt_close($stmt);
 
 mysqli_close($dbc);
 
+unset($_SESSION["recipE"]);
+
+header('Location: user-home.php');
+
 ?>

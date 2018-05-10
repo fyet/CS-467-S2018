@@ -16,6 +16,7 @@
     <?php
     session_start();
     $_SESSION['user'] = 1;
+    $_SESSION['location'] = 0;
     ?>
 
     <?php include("userComponents/navbar.php"); ?>
@@ -89,11 +90,15 @@
                             $row = mysqli_fetch_assoc($recip);
                             ?>
 
-                            <tr data-id="<?php echo $award['id'] ?>">
+                            <tr id="<?php echo $award['id'] ?>">
                                 <td><?php echo $award['accolade_type']; ?></td>
                                 <td><?php echo $row['f_name']; ?></td>
                                 <td><?php echo $row['l_name']; ?></td>
-                                <td><button class="btn btn-danger btn-sm active" data-toggle="modal" data-target="#deleteAward">Delete</button></td>
+                                <td><button class="btn btn-danger btn-sm active" 
+                                    data-toggle="modal"
+                                    id="deleteButt" 
+                                    data-id="<?php echo $award['id'] ?>"
+                                    data-target="#deleteAward">Delete</button></td>
                             </tr>
 
                         <?php } ?>
@@ -106,7 +111,7 @@
         tabindex="-1" role="dialog"
         aria-labelledby="deleteAward"
         aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="deleteAwardTitle"> Delete Award</h5>
@@ -118,11 +123,13 @@
                 </button>
             </div>
             <div class="modal-body text-center">
-                <p>Are you sure you want to delete this award?</p>
+                <p>Are you sure you want to permenently delete this award?</p>
+                <input id="deleteID" 
+                style="visibility: hidden;">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary btn-sm mr-auto" data-dismiss="modal"> Cancel </button>
-                <button type="button" class="btn btn-primary btn-sm"> Delete Award</button>
+                <button type="button" class="btn btn-primary btn-sm" id="submitDelete"> Delete Award</button>
             </div>
         </div>
     </div>
@@ -133,52 +140,31 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    <!-- -<script>
+    <script>
         $(document).ready(function(){
-            $('.remove').click(function(e){
+            $('#deleteAward').on('show.bs.modal', function(event){
+                var button = $(event.relatedTarget);
+                var id = button.data('id');
 
-                e.preventDefault();
+                var modal = $(this);
+                modal.find('.modal-body input').val(id).hide();
 
-                var id = $(this).parents("tr").attr("id");
-                var parent = $(this).parent("td").parent("tr");
+                $('#submitDelete').click(function(){
+                    var id = $('#deleteID').val();
 
-
-                bootbox.dialog({
-                    message:"Are you use you want to delete this award?",
-                    title:"Delete Award",
-                    buttons:{
-                        success:{
-                            label:"No",
-                            className: "btn-success",
-                            callback: function(){
-                                $('.bootbox').modal('hide');
-                            }
-                        },
-                        danger:{
-                            label:"Delete Award",
-                            className:"btn-danger",
-                            callback: function(){
-
-                                /*using $.ajax();
-
-                                $.ajax({
-                                    type: 'POST',
-                                    url: 'deleteAward.php',
-                                    data:'delete='+id
-                                })
-                                .done(function(response){
-                                    bootbox.alert(response);
-                                    parent.fadeOut('slow');
-                                })
-                                .fail(function(){
-                                    bootbox.alert("Something went wrong when deleting....")*/
-                                })
-                            }
+                    $.ajax({
+                        url: 'deleteAward.php?id=' + id,
+                        type: 'DELETE',
+                        cache: false,
+                        success: function(result){
+                            //window.location.reload(true);
+                            $('#deleteAward').modal('hide');
+                            $("#"+id).remove();
                         }
-                    }
+                    });
                 });
-
             });
         });
-    </script> -->
+    </script>
+    <?php mysqli_close($dbc); ?>
 </body>

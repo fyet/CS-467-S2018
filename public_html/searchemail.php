@@ -18,31 +18,26 @@
             align-items:center;
 
     </style>
+    <link rel="stylesheet" href="styles/custom.css">
 </head>
 
 <body>
-      <nav class="navbar navbar-light bg-light">
-    <!-- Menu icon -->
-    <a class="navbar-brand" href="#">
-      <img src="images/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-      AwardHub User
-    </a>
-    <!-- Logout button -->
-    <ul class="nav justify-content-end">
-      <li class="nav-item">
-        <a class="nav-link" href="#">logout <img src="images/Octicons/sign-out.svg" alt="logout"></a>
-      </li>
-    </ul>
-  </nav>
+    <?php include("userComponents/navbar.php"); ?>
 
-    <div class="container">
-        <form action="search.php" method="post" class="form-inline justify-content-center">
-            <div class="form-group" style="padding: 100px 0px">
-                <input type="text" name="key" class="form-control form-control-lg" placeholder="Enter Email">
+    <div class="container-fluid">
+        <div class="row">
+            <?php include("userComponents/sidebar.php"); ?>
+
+            <div class="container">
+                <form action="search.php" method="post" class="form-inline justify-content-center">
+                    <div class="form-group" style="padding: 100px 0px">
+                        <input type="text" name="key" class="form-control form-control-lg" placeholder="Enter Email">
+                    </div>
+                        <button type="submit" class="btn btn-primary btn-lg">Search</button>
+                    </div>
+                </form>
             </div>
-                <button type="submit" class="btn btn-primary btn-lg">Search</button>
-            </div>
-        </form>
+        </div>
     </div>
 
 </body>

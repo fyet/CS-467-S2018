@@ -29,4 +29,6 @@ mysqli_stmt_close($stmt);
 
 mysqli_close($dbc);
 
+header('Location: user-home.php');
+
 ?>

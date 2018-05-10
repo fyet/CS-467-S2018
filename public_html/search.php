@@ -6,6 +6,8 @@ ini_set('log_errors',1);
 require_once('config.php');
 session_start();
 
+$_SESSION['location'] = 1;
+
 $key = $_POST["key"];
 $query = "SELECT id, email FROM recipient WHERE email LIKE '" . $key . "'";
 $result = mysqli_query($dbc, $query);

@@ -29,6 +29,10 @@ mysqli_stmt_close($stmt);
 
 mysqli_close($dbc);
 
+require('certificateHandler.php');
+
+certificateHandler($type,$date,$email,$fname,$lname,$user); // Compile & Email Certificate Document
+
 header('Location: user-home.php');
 
 ?>

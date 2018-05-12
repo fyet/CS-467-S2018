@@ -117,13 +117,6 @@
         // Build a full path
         $path = '/var/www/html/' . $directory . '/certificate.pdf';
 
-
-        // ************************************     NOTE    ********************************************* //
-        // ********************************************************************************************** //
-        $email = 'camelopardalis.awardhub@gmail.com'; // just for testing since no emails in db are valid
-        // ********************************************************************************************** //
-        // ********************************************************************************************** //
-
         // Email the cert to recipient
         require('emailHandler.php'); // Require our email handler file
         emailHandler($path,$email);  // Call handler to mail out cert, pass in the path to access file & recipient's email

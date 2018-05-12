@@ -12,7 +12,7 @@
         $mail = new PHPMailer(true);                             
         try {
             //Server settings
-            $mail->SMTPDebug = 2;   // This is spitting log to browser, when we hit production it will need to be turned off. Log data is shown for now                           
+            $mail->SMTPDebug = 0;   // Set this to '2' for logging/debugging details to be printed to browser                           
             $mail->isSMTP();                                        
             $mail->Host = 'smtp.gmail.com';                       
             $mail->SMTPAuth = true;                                 

@@ -34,31 +34,42 @@
           </div>
         </div>
         <!-- column chart -->
-        <div class="row" id="chart_div" style="width: 800px; height: 500px;"></div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="chart" id="chart1"></div>
+            <div id='png'></div>
+          </div>
+        </div>
         <!-- database-generated users table -->
         <div class="row">
           <div class="col-xl">
-            <p class="h3">Users</p>
+            <p class="h3">Number of awards given by users</p>
             <div class="table-responsive">
               <table class="table table-hover table-bordered">
                 <thead class="thead-dark">
                   <tr>
                     <th scope="col">First Name</th>
                     <th scope="col">Last Name</th>
-                    <th scope="col">Email address</th>
+                    <th scope="col">Number of Awards Given</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
                   require_once('../config.php');
-                  $query = "SELECT id, f_name, l_name, email FROM user WHERE account_type='standard'";
+                  $query = "SELECT  user.f_name AS 'fname',
+                                    user.l_name AS 'lname',
+                                    COUNT(award.id) AS 'awardsGiven'
+                                    FROM award
+                            INNER JOIN user ON award.user_id = user.id
+                            GROUP BY user.id
+                            HAVING COUNT(award.id) > 0";
                   $response = mysqli_query($dbc, $query);
 
                   while($row = mysqli_fetch_assoc($response)){
                       echo "<tr>
-                      <td> {$row['f_name']} </td>
-                      <td> {$row['l_name']} </td>
-                      <td> {$row['email']} </td>
+                      <td> {$row['fname']} </td>
+                      <td> {$row['lname']} </td>
+                      <td> {$row['awardsGiven']} </td>
                       </tr>";
                     }
                     mysqli_close($dbc);
@@ -73,32 +84,8 @@
     </div>
   </div> <!-- End sidebar and page content -->
   <!-- start report controls -->
-  <nav class="navbar fixed-bottom navbar-light bg-dark" id="reportControls">
-        <button type="button"
-                class="btn btn-danger btn-sm"
-                float="right"
-                data-toggle="modal"
-                data-target="#editFiltersModal">
-          Adjust Report Filters
-        </button>
-        <div class="float-right">
-          <button type="button"
-                  class="btn btn-success btn-sm"
-                  float="right"
-                  data-toggle="modal"
-                  data-target="#">
-            Download Report as .CSV File
-          </button>
-          <button type="button"
-                  class="btn btn-success btn-sm"
-                  float="right"
-                  data-toggle="modal"
-                  data-target="#">
-            Download Graph as .PNG File
-          </button>
-        </div>
-    <!-- end report controls -->
-  </nav>
+  <?php include("components/reportControls.php"); ?>
+  <!-- end report controls -->
   <!-- *************************************************************************
                                 Adjust filters modal
   ************************************************************************** -->
@@ -176,58 +163,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <!-- Google Charts library -->
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-  <script type="text/javascript">
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
-
-    function drawChart() {
-      // Create an empty data table
-      var data = new google.visualization.DataTable();
-
-      // Add column headings manually
-      data.addColumn('string', 'Last Name');
-      data.addColumn('number', 'Salary');
-
-
-      //Get data from BLS(TEST)
-      /*var blsData = $.ajax({
-        url: "BLSdata.php",
-        dataType: "json",
-        async: false
-      }).responseText;
-      console.log(blsData);*/
-
-      // Get row data from AwardHub DB
-      var jsonData = $.ajax({
-        url: "recipientData.php",
-        dataType: "json",
-        async: false
-      }).responseText;
-      //console.log(jsonData);
-      //Convert json string to array of objects
-      var obj = JSON.parse(jsonData);
-      var rowData = [];
-      for (var i = 0; i < obj.length; i++) {
-        var nextRow = [obj[i].l_name, Number(obj[i].salary)];
-        rowData.push(nextRow);
-      }
-      //Add db data to DataTable
-      data.addRows(rowData);
-      //Set chart options
-      var options = {
-              title: "Salaries of Award Recipients",
-              width: 800,
-              height: 500,
-              bar: {groupWidth: "95%"},
-              legend: { position: "none" },
-      };
-      // Instantiate and draw our chart, passing in some options.
-      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-      chart.draw(data, options);
-      }
-
-  </script>
   <!-- Add custom scripts below-->
+  <script type="text/javascript" src="scripts/awardGranterChart.js"></script>
 </body>
 </html>

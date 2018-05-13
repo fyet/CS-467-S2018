@@ -65,66 +65,68 @@
               </div> <!-- end card wrapper -->
             </div>
           </a>
-          <a href="admin-biz-awards-by-department.php">
-            <div class="card border-light text-white bg-success mb-3">
-              <div class="card-wrapper">
-                <div class="card-header text-center">View Awards Received by Departments</div>
-                <div class="card-body">
-                  <p class="card-text">
-                    <ul>
-                      <li>Generate customizable, exportable graphs of awards received by departments</li>
-                      <li>Generate reports based on custom filters and export as CSV files</li>
-                    </ul>
-                  </p>
-                </div>
-              </div> <!-- end card wrapper -->
-            </div>
-          </a>
-          <a href="#">
-            <div class="card border-light text-white bg-success mb-3">
-              <div class="card-wrapper">
-                <div class="card-header text-center">View Awards Received by Managers' Employees</div>
-                <div class="card-body">
-                  <p class="card-text">
-                    <ul>
-                      <li>Generate customizable, exportable graphs of awards received by a given manager's employees</li>
-                      <li>Generate reports based on custom filters and export as CSV files</li>
-                    </ul>
-                  </p>
-                </div>
-              </div> <!-- end card wrapper -->
-            </div>
-          </a>
-          <a href="admin-biz-awards-by-region.php">
-            <div class="card border-light text-white bg-success mb-3">
-              <div class="card-wrapper">
-                <div class="card-header text-center">View Awards Received by Region</div>
-                <div class="card-body">
-                  <p class="card-text">
-                    <ul>
-                      <li>Generate customizable, exportable graphs of awards received by region</li>
-                      <li>Generate reports based on custom filters and export as CSV files</li>
-                    </ul>
-                  </p>
-                </div>
-              </div> <!-- end card wrapper -->
-            </div>
-          </a>
-          <a href="#">
-            <div class="card border-light text-white bg-success mb-3">
-              <div class="card-wrapper">
-                <div class="card-header text-center">View Awards Recieved by Branch Location</div>
-                <div class="card-body">
-                  <p class="card-text">
-                    <ul>
-                      <li>Generate customizable, exportable graphs of awards received by branch location</li>
-                      <li>Generate reports based on custom filters and export as CSV files</li>
-                    </ul>
-                  </p>
-                </div>
-              </div> <!-- end card wrapper -->
-            </div>
-          </a>
+          <div style="visibility:hidden;"> <!-- Remove after midpoint check ---->
+            <a href="admin-biz-awards-by-department.php">
+              <div class="card border-light text-white bg-success mb-3">
+                <div class="card-wrapper">
+                  <div class="card-header text-center">View Awards Received by Departments</div>
+                  <div class="card-body">
+                    <p class="card-text">
+                      <ul>
+                        <li>Generate customizable, exportable graphs of awards received by departments</li>
+                        <li>Generate reports based on custom filters and export as CSV files</li>
+                      </ul>
+                    </p>
+                  </div>
+                </div> <!-- end card wrapper -->
+              </div>
+            </a>
+            <a href="#">
+              <div class="card border-light text-white bg-success mb-3">
+                <div class="card-wrapper">
+                  <div class="card-header text-center">View Awards Received by Managers' Employees</div>
+                  <div class="card-body">
+                    <p class="card-text">
+                      <ul>
+                        <li>Generate customizable, exportable graphs of awards received by a given manager's employees</li>
+                        <li>Generate reports based on custom filters and export as CSV files</li>
+                      </ul>
+                    </p>
+                  </div>
+                </div> <!-- end card wrapper -->
+              </div>
+            </a>
+            <a href="admin-biz-awards-by-region.php">
+              <div class="card border-light text-white bg-success mb-3">
+                <div class="card-wrapper">
+                  <div class="card-header text-center">View Awards Received by Region</div>
+                  <div class="card-body">
+                    <p class="card-text">
+                      <ul>
+                        <li>Generate customizable, exportable graphs of awards received by region</li>
+                        <li>Generate reports based on custom filters and export as CSV files</li>
+                      </ul>
+                    </p>
+                  </div>
+                </div> <!-- end card wrapper -->
+              </div>
+            </a>
+            <a href="#">
+              <div class="card border-light text-white bg-success mb-3">
+                <div class="card-wrapper">
+                  <div class="card-header text-center">View Awards Recieved by Branch Location</div>
+                  <div class="card-body">
+                    <p class="card-text">
+                      <ul>
+                        <li>Generate customizable, exportable graphs of awards received by branch location</li>
+                        <li>Generate reports based on custom filters and export as CSV files</li>
+                      </ul>
+                    </p>
+                  </div>
+                </div> <!-- end card wrapper -->
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </div>

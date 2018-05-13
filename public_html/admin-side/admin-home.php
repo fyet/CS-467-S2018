@@ -10,7 +10,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="styles/custom.css">
+  <link rel="stylesheet" href="../styles/custom.css">
 </head>
 <body>
   <!-- *************************************************************************
@@ -89,35 +89,50 @@
           </div>
         </div>
         <!-- database-generated activity log -->
+        <div class="row align-items-center" style="margin-top:40px;">
+          <div class="col-md-4">
+            <p class="h3 text-success">Activity Log</p>
+          </div>
+          <div class="form-group col-md-auto">
+
+            <div class="row">
+              <div class="col-md-auto">
+                <p class="h4 text-success"><br>Date Range</p>
+              </div>
+              <div class="form-group col-md-auto">
+                <small class="form-text text-muted">
+                  start date
+                </small>
+                <input  id="startDate"
+                        type="date"
+                        name="startDate"
+                        class="form-control bg-success text-white"
+                        min="1900-01-01">
+              </div>
+              <div class="form-group col-md-auto">
+                <small class="form-text text-muted">
+                  end date
+                </small>
+                <input  id="endDate"
+                        type="date"
+                        name="endDate"
+                        class="form-control bg-success text-white"
+                        min="1900-01-02">
+              </div>
+              <div class="form-group col-md-auto">
+                <br>
+                <button id="updateActivityTable" type="button" class="btn btn-outline-success btn-md">
+                  Update
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-xl">
-            <p class="h3">Activity Log</p>
             <div class="table-responsive">
               <table class="table table-hover table-sm">
-                <tbody>
-                  <?php
-                  require_once('config.php');
-
-                  $query = "SELECT award.accolade_date,
-                                   user.f_name AS 'uf_name',
-                                   user.l_name AS 'ul_name',
-                                   award.accolade_type,
-                                   recipient.f_name AS 'rf_name',
-                                   recipient.l_name AS 'rl_name' FROM ((award
-                  INNER JOIN recipient ON award.recipient_id = recipient.id)
-                  INNER JOIN user ON award.user_id = user.id);";
-
-                  $response = mysqli_query($dbc, $query);
-                  while($row = mysqli_fetch_assoc($response)){
-                      echo "<tr>
-                      <td><i>{$row['accolade_date']}</i></td>
-                      <td>
-                        <p>{$row['uf_name']} {$row['ul_name']} awarded \"{$row['accolade_type']}\" to {$row['rf_name']} {$row['rl_name']}</p>
-                      </td>
-                      </tr>";
-                    }
-                    mysqli_close($dbc);
-                  ?>
+                <tbody id="activityTable">
                 </tbody>
               </table>
             </div>
@@ -129,9 +144,12 @@
   </div> <!-- End sidebar and page content -->
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <!-- Add custom scripts below-->
+  <script type="text/javascript" src="scripts/activityTable.js">
+
+  </script>
 </body>
 </html>

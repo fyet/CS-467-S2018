@@ -73,32 +73,8 @@
     </div>
   </div> <!-- End sidebar and page content -->
   <!-- start report controls -->
-  <nav class="navbar fixed-bottom navbar-light bg-dark" id="reportControls">
-        <button type="button"
-                class="btn btn-danger btn-sm"
-                float="right"
-                data-toggle="modal"
-                data-target="#editFiltersModal">
-          Adjust Report Filters
-        </button>
-        <div class="float-right">
-          <button type="button"
-                  class="btn btn-success btn-sm"
-                  float="right"
-                  data-toggle="modal"
-                  data-target="#">
-            Download Report as .CSV File
-          </button>
-          <button type="button"
-                  class="btn btn-success btn-sm"
-                  float="right"
-                  data-toggle="modal"
-                  data-target="#">
-            Download Graph as .PNG File
-          </button>
-        </div>
-    <!-- end report controls -->
-  </nav>
+  <?php include("components/reportControls.php"); ?>
+  <!-- end report controls -->
   <!-- *************************************************************************
                                 Adjust filters modal
   ************************************************************************** -->

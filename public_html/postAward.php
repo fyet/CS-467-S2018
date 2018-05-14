@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once('config.php');
 session_start();
@@ -29,7 +29,7 @@ mysqli_stmt_close($stmt);
 
 mysqli_close($dbc);
 
-require('certificateHandler.php');
+require_once 'certificateHandler.php';
 
 certificateHandler($type,$date,$email,$fname,$lname,$user); // Compile & Email Certificate Document
 

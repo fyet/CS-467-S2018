@@ -39,12 +39,6 @@
               <div class="card-wrapper">
                 <div class="card-header text-center">View Awards Given by User</div>
                 <div class="card-body">
-                  <p class="card-text">
-                    <ul>
-                      <li>Generate customizable, exportable graphs of awards given by AwardHub users</li>
-                      <li>Generate reports based on custom filters and export as CSV files</li>
-                    </ul>
-                  </p>
                 </div>
               </div> <!-- end card wrapper -->
             </div>
@@ -54,78 +48,52 @@
               <div class="card-wrapper">
                 <div class="card-header text-center">View Awards Recieved By Individuals</div>
                 <div class="card-body">
-                  <p class="card-text">
-                    <ul>
-                      <li>Generate customizable, exportable graphs of awards received by individuals</li>
-                      <li>Compare salaries of award recipients to industry averages for the region</li>
-                      <li>Generate reports based on custom filters and export as CSV files</li>
-                    </ul>
-                  </p>
                 </div>
               </div> <!-- end card wrapper -->
             </div>
           </a>
-          <div style="visibility:hidden;"> <!-- Remove after midpoint check ---->
-            <a href="admin-biz-awards-by-department.php">
-              <div class="card border-light text-white bg-success mb-3">
-                <div class="card-wrapper">
-                  <div class="card-header text-center">View Awards Received by Departments</div>
-                  <div class="card-body">
-                    <p class="card-text">
-                      <ul>
-                        <li>Generate customizable, exportable graphs of awards received by departments</li>
-                        <li>Generate reports based on custom filters and export as CSV files</li>
-                      </ul>
-                    </p>
-                  </div>
-                </div> <!-- end card wrapper -->
-              </div>
-            </a>
-            <a href="#">
-              <div class="card border-light text-white bg-success mb-3">
-                <div class="card-wrapper">
-                  <div class="card-header text-center">View Awards Received by Managers' Employees</div>
-                  <div class="card-body">
-                    <p class="card-text">
-                      <ul>
-                        <li>Generate customizable, exportable graphs of awards received by a given manager's employees</li>
-                        <li>Generate reports based on custom filters and export as CSV files</li>
-                      </ul>
-                    </p>
-                  </div>
-                </div> <!-- end card wrapper -->
-              </div>
-            </a>
-            <a href="admin-biz-awards-by-region.php">
-              <div class="card border-light text-white bg-success mb-3">
-                <div class="card-wrapper">
-                  <div class="card-header text-center">View Awards Received by Region</div>
-                  <div class="card-body">
-                    <p class="card-text">
-                      <ul>
-                        <li>Generate customizable, exportable graphs of awards received by region</li>
-                        <li>Generate reports based on custom filters and export as CSV files</li>
-                      </ul>
-                    </p>
-                  </div>
-                </div> <!-- end card wrapper -->
-              </div>
-            </a>
-            <a href="#">
-              <div class="card border-light text-white bg-success mb-3">
-                <div class="card-wrapper">
-                  <div class="card-header text-center">View Awards Recieved by Branch Location</div>
-                  <div class="card-body">
-                    <p class="card-text">
-                      <ul>
-                        <li>Generate customizable, exportable graphs of awards received by branch location</li>
-                        <li>Generate reports based on custom filters and export as CSV files</li>
-                      </ul>
-                    </p>
-                  </div>
-                </div> <!-- end card wrapper -->
-              </div>
-            </a>
+          <a href="admin-biz-awards-by-department.php">
+            <div class="card border-light text-white bg-success mb-3">
+              <div class="card-wrapper">
+                <div class="card-header text-center">View Awards Received by Departments</div>
+                <div class="card-body">
+                </div>
+              </div> <!-- end card wrapper -->
+            </div>
+          </a>
+          <a href="#">
+            <div class="card border-light text-white bg-success mb-3">
+              <div class="card-wrapper">
+                <div class="card-header text-center">View Awards Received by Managers' Employees</div>
+                <div class="card-body">
+                </div>
+              </div> <!-- end card wrapper -->
+            </div>
+          </a>
+          <a href="admin-biz-awards-by-region.php">
+            <div class="card border-light text-white bg-success mb-3">
+              <div class="card-wrapper">
+                <div class="card-header text-center">View Awards Received by Region</div>
+                <div class="card-body">
+                </div>
+              </div> <!-- end card wrapper -->
+            </div>
+          </a>
+          <a href="#">
+            <div class="card border-light text-white bg-success mb-3">
+              <div class="card-wrapper">
+                <div class="card-header text-center">View Awards Recieved by Branch Location</div>
+                <div class="card-body">
+                </div>
+              </div> <!-- end card wrapper -->
+            </div>
+          </a>
+        </div>
+        <!-- column chart -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="chart" id="chart1"></div>
+            <div id='png'></div>
           </div>
         </div>
       </div>
@@ -136,6 +104,9 @@
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- Google Charts library -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <!-- Add custom scripts below-->
+  <script type="text/javascript" src="scripts/awardsChart.js"></script>
 </body>
 </html>

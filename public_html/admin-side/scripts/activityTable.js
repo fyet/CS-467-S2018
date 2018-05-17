@@ -1,3 +1,23 @@
+function loadTable(startDate, endDate){
+  $.get('components/activityTable.php', {start:startDate, end:endDate}, function(data){
+    $('#activityTable').html(data);
+  });
+}
+
+function currentDate(){
+  var d = new Date();
+  //Get current day of the month and pad with 0 as necessary
+  var day = d.getDate().toString();
+  if (day < 10)
+    day = '0' + day.toString();
+  //Get current month and pad with 0 as necessary
+  var month = d.getMonth() + 1;
+  if (month < 10)
+    month = '0' + month.toString();
+  //Return date in format 'yyyy/mm/dd'
+  return d.getFullYear().toString() + '-' + month + '-' + day;
+}
+
 $(document).ready(function(){
   //Set default date range
   var start = '1900-01-01';
@@ -14,25 +34,4 @@ $(document).ready(function(){
     //Send request to reload table
     loadTable(newStart, newEnd);
   });
-
-
-  function loadTable(startDate, endDate){
-    $.get('components/activityTable.php', {start:startDate, end:endDate}, function(data){
-      $('#activityTable').html(data);
-    });
-  }
-
-  function currentDate(){
-    var d = new Date();
-    //Get current day of the month and pad with 0 as necessary
-    var day = d.getDate().toString();
-    if (day < 10)
-      day = '0' + day.toString();
-    //Get current month and pad with 0 as necessary
-    var month = d.getMonth() + 1;
-    if (month < 10)
-      month = '0' + month.toString();
-    //Return date in format 'yyyy/mm/dd'
-    return d.getFullYear().toString() + '-' + month + '-' + day;
-  }
 });

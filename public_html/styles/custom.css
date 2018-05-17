@@ -2,6 +2,14 @@ body {
   padding-top: 50px;
 }
 
+/*************************** start table styling **************************/
+table button svg {
+  fill: white;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+
 /************** start mobile/general card styling *******************/
 .card-deck {
   margin-top: 10px;

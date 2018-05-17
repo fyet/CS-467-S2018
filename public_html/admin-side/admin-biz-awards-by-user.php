@@ -30,9 +30,20 @@
       <div class="col-sm-12 page-content">
         <div class="row">
           <div class="col-xl">
-            <p class="h3"><a href="admin-biz.php">Business Insights</a><strong> > </strong>Award Data by User</p>
+            <div class="h3"><a href="admin-biz.php">Business Insights</a><strong> > </strong>Award Data by
+              <div class="dropdown" style="display:inline-block;">
+                <a class="btn btn-outline-dark btn-lg dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  User
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="admin-biz-awards-by-recipient.php">Recipient</a>
+                  <a class="dropdown-item" href="#">Region</a>
+                  <a class="dropdown-item" href="#">Department</a>
+                </div>
+              </div>
           </div>
         </div>
+      </div>
         <!-- column chart -->
         <div class="row">
           <div class="col-md-12">

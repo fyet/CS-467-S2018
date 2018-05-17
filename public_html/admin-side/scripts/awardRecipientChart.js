@@ -27,11 +27,16 @@ $(document).ready(function(){
     }
     //Add db data to DataTable
     data.addRows(rowData);
+
+    //Get width of page-content element
+    var chartWidth = $('.page-content').width();
     //Set chart options
     var options = {
             title: "Number of Awards Received",
             bar: {groupWidth: "95%"},
             legend: { position: "none" },
+            width: chartWidth,
+            chartArea: {width:chartWidth,left:50,top:50,bottom:50,height:450}
     };
     // Instantiate and draw our chart, passing in some options.
     var chart = new google.visualization.ColumnChart(document.getElementById('chart1'));

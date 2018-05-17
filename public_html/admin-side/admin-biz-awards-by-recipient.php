@@ -42,8 +42,8 @@
                 </div>
               </div>
             </div>
+          </div>
         </div>
-      </div>
         <!-- column chart -->
         <div class="row">
           <div class="col-md-12">
@@ -64,26 +64,7 @@
                     <th scope="col">Award Count</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <?php
-                  require_once('../config.php');
-                  $query = "SELECT  recipient.f_name AS 'fname',
-                                    recipient.l_name AS 'lname',
-                                    COUNT(award.id) AS 'awardsReceived' FROM award
-                                    INNER JOIN recipient ON award.recipient_id = recipient.id
-                                    GROUP BY recipient.id
-                                    HAVING COUNT(award.id) > 0";
-                  $response = mysqli_query($dbc, $query);
-
-                  while($row = mysqli_fetch_assoc($response)){
-                      echo "<tr>
-                      <td> {$row['fname']} </td>
-                      <td> {$row['lname']} </td>
-                      <td> {$row['awardsReceived']} </td>
-                      </tr>";
-                    }
-                    mysqli_close($dbc);
-                  ?>
+                <tbody id="recipientAwardsTable">
                 </tbody>
               </table>
             </div>
@@ -175,5 +156,7 @@
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <!-- Add custom scripts below-->
   <script type="text/javascript" src="scripts/awardRecipientChart.js"></script>
+  <script type="text/javascript" src="scripts/recipientAwardsTable.js"></script>
+  <script type="text/javascript" src="scripts/tableToCSV.js"></script>
 </body>
 </html>

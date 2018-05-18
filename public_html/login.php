@@ -70,9 +70,9 @@ button:hover {
     margin: 24px 0 12px 0;
 }
 
-img.logo {
-    width: 35%;
-    border-radius: 50%;
+.logo svg {
+    width: 100px;
+    height: 100px;
 }
 
 .container {
@@ -80,7 +80,7 @@ img.logo {
     margin:auto;
     width:50%;
     background-color:#ECF0F1;
-   
+
 }
 
 span.psw {
@@ -104,7 +104,9 @@ span.psw {
 
 <form action="/action_page.php" id="form_login">
   <div class="imgcontainer">
-    <img src="CamelopardalisLogo.png" alt="Logo" class="logo">
+    <div class="logo">
+      <?php include("images/logo.svg"); ?>
+    </div>
   </div>
   <h2> Sign In To Award Hub </h2>
   <div class="container">
@@ -113,7 +115,7 @@ span.psw {
 
    <label for="psw"><b>Password</b></label>
    	<input type="password" placeholder="Enter Password" name="psw" required>
-        
+
    	<button type="submit" id="subButt">Login</button><br>
    	<label>
      	<input type="checkbox" checked="checked" name="remember"> Remember me

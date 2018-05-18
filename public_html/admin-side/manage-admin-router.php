@@ -1,6 +1,48 @@
 <?php
 //Establish connection with DB
 require_once('../config.php');
+// Import necessary PHPmailer classes
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+// The code structure below is from phpmailer's manual: https://github.com/PHPMailer/PHPMailer
+require '../vendor/autoload.php'; // the autoload file
+
+function emailHandler($email, $pw){
+  $mail = new PHPMailer(true);
+  try {
+      //Server settings
+      $mail->SMTPDebug = 2;   // Set this to '2' for logging/debugging details to be printed to browser
+      $mail->isSMTP();
+      $mail->Host = 'smtp.gmail.com';
+      $mail->SMTPAuth = true;
+      $mail->Username = 'camelopardalis.awardhub@gmail.com';
+      $mail->Password = 'cs467group!@#$';
+      $mail->SMTPSecure = 'tls';
+      $mail->Port = 587;
+
+      //Recipients
+      $mail->setFrom('camelopardalis.awardhub@gmail.com', 'Award Hub');
+      $mail->addAddress($email);
+
+      //Content
+      $mail->isHTML(true);
+      $mail->Subject = 'New Administator Account on Award Hub';
+      $mail->Body    = 'Welcome to Award Hub!<br>
+                        <p>A new administrative account has been created for
+                        you in the Award Hub system. Your temporary password is:</p>
+                        <p><strong>'.$pw.'</strong></p>
+                        <p>Please login using the link provided below:</p>
+                        <a href=\'http://18.188.194.159/login.php\'>http://18.188.194.159/login.php</a>';
+      $mail->AltBody = 'You are being recognized for your outstanding achievement! Please accept the attached award certificate as a token of gratitude.';
+
+      $mail->send();
+      echo 'Message has been sent';
+  } catch (Exception $e) {
+      echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+  }
+}
+
 
 //Route request based on HTTP method
 switch($_SERVER['REQUEST_METHOD']) {
@@ -18,6 +60,8 @@ switch($_SERVER['REQUEST_METHOD']) {
     mysqli_stmt_bind_param($stmt, 'ssss', $email, $pwd, $date, $type);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
+    //Send email to new user
+    emailHandler($email, $pwd);
     //Send response code back to client
     http_response_code(201);
     var_dump(http_response_code());

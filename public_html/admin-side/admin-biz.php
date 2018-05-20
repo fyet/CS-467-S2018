@@ -107,6 +107,9 @@
   <!-- Google Charts library -->
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <!-- Add custom scripts below-->
+  <script>
+    $("#BIbtn").addClass("active"); //add active class to Business Insights button
+  </script>
   <script type="text/javascript" src="scripts/awardsChart.js"></script>
 </body>
 </html>

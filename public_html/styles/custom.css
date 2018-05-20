@@ -2,34 +2,41 @@ body {
   padding-top: 50px;
 }
 
-/*************************** start table styling **************************/
+.page-content {
+  padding-right: 15px;
+  padding-left: 65px;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+/* start table styling */
 table button svg {
   fill: white;
   width: 16px;
   height: 16px;
   vertical-align: middle;
 }
+/* end table styling */
 
-/************** start mobile/general card styling *******************/
+
+/* start mobile/general card styling */
 .card-deck {
   margin-top: 10px;
 }
-
 .card {
   min-width: 300px;
   max-width: 500px;
 }
-
 .card-wrapper:hover {
   background-color: rgba(0, 0, 0, 0.3); /*darken on hover*/
 }
-
 .card-body {
   display: none;
 }
-/************** end mobile/general card styling **********************/
+/* end mobile/general card styling */
 
-/************** start mobile/general sidebar styling *****************/
+
+/* start mobile/general sidebar styling */
 #sidebar { /*mobile version*/
     position: fixed;
     top: 51px;
@@ -44,46 +51,52 @@ table button svg {
     border-right: 1px solid #eee;
     width: 50px;
 }
-
 #sidebar .sidebar-text {
   display: none;
 }
-
 #sidebar svg {
   fill: gray;
   width: 20px;
   height: 20px;
 }
-
 #sidebar a {
   width: 50px;
 }
-/************** end mobile/general sidebar styling *****************/
+/* end mobile/general sidebar styling */
 
-.page-content {
-  padding-right: 15px;
-  padding-left: 65px;
-  padding-top: 20px;
-  padding-bottom: 50px;
-}
 
-/************** start chart styling *****************/
+/* start chart styling */
 .chart {
   width: 100%;
   min-height: 450px;
 }
-/************** end chart styling *****************/
+/* end chart styling */
 
 
-/************** start mobile/general bottom report nav styling *****/
+/* start mobile/general bottom report nav styling */
 #reportControls {
   padding-right: 15px;
   padding-left: 65px;
 }
-/************** end mobile/general bottom report nav styling *****/
+#reportControls .reportControlsText {
+  display: none;
+}
+#reportControls svg {
+  fill: white;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+/* end mobile/general bottom report nav styling */
 
+/* Desktop-specific styling */
+@media (min-width: 860px) {
+    .page-content {
+      padding-top: 40px;
+      padding-right: 40px;
+      padding-left: 210px;
+    }
 
-@media (min-width: 860px) { /*desktop version*/
     #sidebar {
         padding-top: 20px;
         width: 170px;
@@ -99,16 +112,20 @@ table button svg {
     #sidebar .sidebar-text {
       display: block;
     }
+
     .card-body {
       display: initial;
     }
-    .page-content {
-      padding-top: 40px;
-      padding-right: 40px;
-      padding-left: 210px;
-    }
+
     #reportControls {
       padding-right: 40px;
       padding-left: 210px;
+    }
+    #reportControls .reportControlsText {
+      display: block;
+    }
+    #reportControls svg {
+      width: 40px;
+      height: 40px;
     }
 }

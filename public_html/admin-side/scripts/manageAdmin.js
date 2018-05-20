@@ -1,3 +1,12 @@
+function loadTable(){
+  $.get('components/adminTable.php', function(data){
+    $('#adminTable').html(data);
+  });
+}
+
+//Load table initially
+loadTable();
+
 $(document).ready(function(){
   $("#submitNewAdmin").click(function(){
     var email = $("#adminEmail").val();
@@ -10,7 +19,10 @@ $(document).ready(function(){
       data: payload,
       cache: false,
       success: function(){
-        window.location.reload(true); //make asynchronous later
+        $('#addAdminModal').modal('hide');
+        //Reset form fields
+        $('#adminEmail').val('');
+        loadTable();
       }
     });
   });
@@ -37,7 +49,8 @@ $(document).ready(function(){
         data: payload,
         cache: false,
         success: function(result){
-            window.location.reload(true);
+            $('#editAdminModal').modal('hide');
+            loadTable();
         }
       });
     });

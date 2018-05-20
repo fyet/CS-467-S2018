@@ -1,3 +1,12 @@
+function loadTable(){
+  $.get('components/usersTable.php', function(data){
+    $('#usersTable').html(data);
+  });
+}
+
+//Load table initially
+loadTable();
+
 $(document).ready(function(){
   $("#submitNewUser").click(function(){
     var firstName = $("#firstNameNew").val();
@@ -8,14 +17,18 @@ $(document).ready(function(){
                                   email: userEmail});
     //Add validation here later
     //Submit form to be handle by PHP file
-
     $.ajax({
       type: "POST",
       url: "manage-users-router.php",
       data: payload,
       cache: false,
       success: function(){
-        window.location.reload(true); //make asynchronous later
+        $('#addUserModal').modal('hide');
+        //Reset form fields
+        $('#firstNameNew').val('');
+        $('#lastNameNew').val('');
+        $('#userEmailNew').val('');
+        loadTable();
       }
     });
   });
@@ -50,7 +63,8 @@ $(document).ready(function(){
         data: payload,
         cache: false,
         success: function(result){
-          window.location.reload(true);
+          $('#editUserModal').modal('hide');
+          loadTable();
         }
       });
     });
@@ -76,7 +90,6 @@ $(document).ready(function(){
         type: 'DELETE',
         cache: false,
         success: function(result){
-            //window.location.reload(true);
             $('#deleteUserModal').modal('hide');
             $('#'+id).remove();
         }

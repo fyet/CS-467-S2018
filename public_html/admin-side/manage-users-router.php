@@ -1,6 +1,8 @@
 <?php
 //Establish connection with DB
-require_once('../config.php');
+require_once '../config.php';
+// Import necessary PHPmailer classes and custom functions
+require_once 'emailHandler.php';
 
 //Route request based on HTTP method
 switch($_SERVER['REQUEST_METHOD']) {
@@ -23,6 +25,15 @@ switch($_SERVER['REQUEST_METHOD']) {
     mysqli_stmt_bind_param($stmt, 'sssssss', $f_name, $l_name, $email, $pwd, $creationDate, $type, $lastChange);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
+    //Send email to new user
+    $subject = 'New Account on Award Hub';
+    $msgBody = $f_name.' '.$l_name.',<br>
+                <p>Welcome to Award Hub! A new account has been created for you in the Award Hub
+                system. Your temporary password is:</p>
+                <p><strong>'.$pwd.'</strong></p>
+                <p>Please login using the link provided below:</p>
+                <a href=\'http://18.188.194.159/login.php\'>http://18.188.194.159/login.php</a>';
+    emailHandler($email, $subject, $msgBody);
     //Send response code back to client
     http_response_code(201);
     var_dump(http_response_code());

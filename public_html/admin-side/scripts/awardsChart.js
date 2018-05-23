@@ -1,5 +1,4 @@
 $(document).ready(function(){
-  console.log("awardsChart");
   google.charts.load('current', {'packages':['corechart']});
   google.charts.setOnLoadCallback(drawChart1);
 
@@ -17,7 +16,6 @@ $(document).ready(function(){
       dataType: "json",
       async: false
     }).responseText;
-    console.log(jsonData);
     //Convert json string to array of objects
     var obj = JSON.parse(jsonData);
     var rowData = [];
@@ -30,12 +28,10 @@ $(document).ready(function(){
 
     //Get width of page-content element
     var chartWidth = $('.page-content').width();
-    console.log(chartWidth);
     //Set chart options
     var options = {
             title: "Total awards given over time",
             width: chartWidth,
-            curveType: 'function',
             legend: { position: "none" },
             chartArea: {width:chartWidth,left:50,top:50,bottom:50,height:450}
     };

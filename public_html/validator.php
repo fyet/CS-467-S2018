@@ -2,7 +2,7 @@
 
     // NOTE: Used password_hash($raw_pwd, PASSWORD_DEFAULT); to generate all pwds 
 
-    // Grab the username & password from the submitted form 
+    // Grab the username, password, and type from the submitted form 
     $submitted_un = $_POST["uemail"];
     $submitted_pwd = $_POST["psw"];
 
@@ -15,21 +15,36 @@
     //   2. http://php.net/manual/en/mysqli.real-escape-string.php 
     $submitted_un = mysqli_real_escape_string ($dbc, $submitted_un);
     $submitted_pwd = mysqli_real_escape_string ($dbc, $submitted_pwd);
-    
-    $query = "SELECT psword FROM user WHERE email='$submitted_un'";               
+
+    // Define query
+    $query = "SELECT psword,account_type FROM user WHERE email='$submitted_un'";               
     $response = mysqli_query($dbc, $query);             // Invoke query
     if($response){                                      // Check to make sure we had a response 
         while($row = mysqli_fetch_assoc($response)){    // An array was returned, use while loop to step into first postion
-            $hashed_pwd = "{$row['psword']}";           // Grab the first name of user           
+            $hashed_pwd = "{$row['psword']}";           // Grab the password of user   
+            $type = "{$row['account_type']}";           // Grab the password of user        
         }
         mysqli_close($dbc);     // Close connection to database 
 
         // Compare the user's submitted password with the user's password. If they match...
         if (password_verify($submitted_pwd, $hashed_pwd)) { // See http://php.net/manual/en/function.password-verify.php
-            // Set up session info here...
+            
+            /*************************************/
+                /*Set up session info here...*/
+            /*************************************/
 
-            // Redirect the user to the home page
-            header("Location: http://18.188.194.159/user-home.php");
+            // Check to if the user is a standard user or admin user, direct them to the appropriate section of site
+            if($type == "standard"){  // User is standard user, needs to be directed to admin branch
+                // Redirect the user to the home page
+                header("Location: http://18.188.194.159/user-home.php");
+            }
+            else if($type == "admin"){ // User is admin user, needs to be directed to admin branch
+                 // Redirect the user to the home page
+                 header("Location: http://18.188.194.159/admin-side/admin-home.php");               
+            } 
+            else{  // Some undefined error occured.
+                header("Location: http://18.188.194.159/login.php?error=Error%20-%20Contact%20Administrator");
+            }
         } 
         // The password wasn't verified. Redirect user to 'login.php' w/ GET parameters informing them of error.
         else{

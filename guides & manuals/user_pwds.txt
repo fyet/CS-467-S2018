@@ -1,9 +1,9 @@
---------------------------------------------------------
-|             Email             |        Password       |
---------------------------------------------------------
-| mscott@dundermifflin.com      | worldsbestboss        |
-| dschrute@dundermifflin.com    | assistant2themanager  | 
-| jhalpert@dundermifflin.com    | jim1234               |  
-| amartin@dundermifflin.com     | cats                  | 
-| tflenderson@dundermifflin.com | humanResources4life   |                  
---------------------------------------------------------
+------------------------------------------------------------------------
+|             Email             |        Password       |      Type    |
+------------------------------------------------------------------------
+| mscott@dundermifflin.com      | worldsbestboss        |    Standard  |
+| dschrute@dundermifflin.com    | assistant2themanager  |    Standard  |
+| jhalpert@dundermifflin.com    | jim1234               |    Standard  | 
+| amartin@dundermifflin.com     | cats                  |    Standard  |
+| tflenderson@dundermifflin.com | humanResources4life   |    Admin     |              
+------------------------------------------------------------------------

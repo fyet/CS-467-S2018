@@ -2,7 +2,7 @@
 
     // NOTE: Used password_hash($raw_pwd, PASSWORD_DEFAULT); to generate all pwds 
 
-    // Grab the username, password, and type from the submitted form 
+    // Grab the username, password from the submitted form 
     $submitted_un = $_POST["uemail"];
     $submitted_pwd = $_POST["psw"];
 
@@ -16,7 +16,7 @@
     $submitted_un = mysqli_real_escape_string ($dbc, $submitted_un);
     $submitted_pwd = mysqli_real_escape_string ($dbc, $submitted_pwd);
 
-    // Define query
+    // Define query, get the password and account type from db
     $query = "SELECT psword,account_type FROM user WHERE email='$submitted_un'";               
     $response = mysqli_query($dbc, $query);             // Invoke query
     if($response){                                      // Check to make sure we had a response 

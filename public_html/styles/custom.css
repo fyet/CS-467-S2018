@@ -30,7 +30,7 @@ table button svg {
 .card-wrapper:hover {
   background-color: rgba(0, 0, 0, 0.3); /*darken on hover*/
 }
-.card-body {
+.remove-body-on-resize .card-body{
   display: none;
 }
 /* end mobile/general card styling */
@@ -125,7 +125,7 @@ table button svg {
       display: block;
     }
 
-    .card-body {
+    .remove-body-on-resize .card-body {
       display: initial;
     }
 

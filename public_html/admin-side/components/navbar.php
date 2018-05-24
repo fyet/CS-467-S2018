@@ -1,7 +1,7 @@
 <!-- *************************************************************************
                                 top menu
 ************************************************************************** -->
-<nav class="navbar navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-dark bg-dark fixed-top" id="topMenu">
   <!-- Start brand/logo element -->
   <a class="navbar-brand" href="admin-home.php">
     <img src="../images/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">

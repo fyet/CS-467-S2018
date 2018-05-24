@@ -30,7 +30,7 @@
       <div class="col-sm-12 page-content">
         <div class="row">
           <div class="col-xl">
-            <div class="h3"><a href="admin-biz.php">Business Insights</a><strong> > </strong>Award Data by
+            <div class="h3" id="pageTitle"><a href="admin-biz.php">Business Insights</a><strong> > </strong>Award Data by
               <div class="dropdown" style="display:inline-block;">
                 <a class="btn btn-outline-dark btn-lg dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Recipient
@@ -42,35 +42,54 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <!-- column chart -->
-        <div class="row">
-          <div class="col-md-12">
-            <div class="chart" id="chart1"></div>
-            <div id='png'></div>
-          </div>
-        </div>
-        <!-- database-generated users table -->
-        <div class="row">
-          <div class="col-xl">
-            <p class="h3">Number of awards received</p>
-            <div class="table-responsive">
-              <table class="table table-hover table-bordered">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">Award Count</th>
-                  </tr>
-                </thead>
-                <tbody id="recipientAwardsTable">
-                </tbody>
-              </table>
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Chart view</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Data view</a>
+              </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <!-- column chart -->
+                <div class="row mt-4">
+                  <div class="col-xl">
+                    <div class="chart" id="chart1"></div>
+                    <div id='png'></div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <!-- database-generated users table -->
+                <div class="row mt-4">
+                  <div class="col-xl">
+                    <div class="h5">Award Recipients</div>
+                    <!--<div class="table-responsive">
+                      <table class="table table-hover table-bordered table-striped table-sm">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Award Count</th>
+                            <th scope="col">Hire Date</th>
+                            <th scope="col">Salary</th>
+                            <th scope="col">Job Title</th>
+                            <th scope="col">Manager</th>
+                            <th scope="col">Branch</th>
+                            <th scope="col">State</th>
+                          </tr>
+                        </thead>
+                        <tbody id="recipientAwardsTable">
+                        </tbody>
+                      </table>
+                    </div>-->
+                  </div>
+                </div>
+                <!-- end users table -->
+                <div id="googleTable"></div>
+              </div>
             </div>
           </div>
         </div>
-        <!-- end users table -->
       </div>
     </div>
   </div> <!-- End sidebar and page content -->
@@ -80,7 +99,7 @@
   <!-- *************************************************************************
                                 Adjust filters modal
   ************************************************************************** -->
-  <div  class="modal fade" id="editFiltersModal"
+  <!-- <div  class="modal fade" id="editFiltersModal"
         tabindex="-1" role="dialog"
         aria-labelledby="editFiltersModal"
         aria-hidden="true">
@@ -97,6 +116,52 @@
         </div>
         <div class="modal-body">
           <form>
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label for="sortingCriteria">Sort by:</label>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">First</label>
+                  </div>
+                  <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>Choose...</option>
+                    <option value="1"></option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-12">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect02">Second</label>
+                  </div>
+                  <select class="custom-select" id="inputGroupSelect02">
+                    <option selected>None</option>
+                    <option value="1"></option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-12">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend" style="width:60px;">
+                    <label class="input-group-text" for="inputGroupSelect03">Third</label>
+                  </div>
+                  <select class="custom-select" id="inputGroupSelect03">
+                    <option selected>None</option>
+                    <option value="1"></option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+            </div>
             <div class="row">
               <div class="form-group col-md-6">
                 <label for="userList">Award Granters</label>
@@ -140,13 +205,16 @@
           <button type="button" class="btn btn-secondary btn-sm mr-auto" data-dismiss="modal">
             Exit without saving changes
           </button>
+          <button type="button" class="btn btn-danger btn-sm" id="resetFilters">
+            Reset filters
+          </button>
           <button type="button" class="btn btn-primary btn-sm" id="updateFilters">
             Update report filters
           </button>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -158,7 +226,57 @@
   <script>
     $("#BIbtn").addClass("active"); //add active class to Business Insights button
   </script>
-  <script type="text/javascript" src="scripts/awardRecipientChart.js"></script>
+
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['table']});
+    google.charts.setOnLoadCallback(drawTable);
+
+    function drawTable() {
+      //Add column headings manually
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'First Name');
+      data.addColumn('string', 'Last Name');
+      data.addColumn('number', 'Award Count');
+      data.addColumn('number', 'Salary');
+      data.addColumn('string', 'Hire Date');
+      data.addColumn('string', 'Job Title');
+      data.addColumn('string', 'Manager');
+      data.addColumn('string', 'Branch');
+      data.addColumn('string', 'State');
+
+      //Get data from DB
+      var jsonData = $.ajax({
+        url: "awardRecipientData.php",
+        dataType: "json",
+        async: false
+      }).responseText;
+
+      //Convert JSON to array of objects
+      var obj = JSON.parse(jsonData);
+      var rowData = [];
+      for (var i = 0; i < obj.length; i++) {
+        var row =   [obj[i].fname,
+                    obj[i].lname,
+                    Number(obj[i].awardsReceived),
+                    Number(obj[i].salary),
+                    obj[i].hireDate,
+                    obj[i].jobTitle,
+                    obj[i].manager,
+                    obj[i].branch,
+                    obj[i].state];
+        rowData.push(row);
+      }
+
+      //Add all row data to table
+      data.addRows(rowData);
+
+      var table = new google.visualization.Table(document.getElementById('googleTable'));
+
+      table.draw(data, {showRowNumber: false, width: '100%', height: '100%', allowHtml: 'true',
+                        cssClassNames:{}});
+    }
+  </script>
+  <script type="text/javascript" src="scripts/awardRecipientLineChart.js"></script>
   <script type="text/javascript" src="scripts/recipientAwardsTable.js"></script>
   <script type="text/javascript" src="scripts/tableToCSV.js"></script>
 </body>

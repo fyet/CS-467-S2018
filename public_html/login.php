@@ -102,7 +102,7 @@ span.psw {
 
 
 
-<form action="/action_page.php" id="form_login">
+<form action="/loginValidator.php" method="POST" id="form_login">
   <div class="imgcontainer">
     <div class="logo">
       <?php include("images/logo.svg"); ?>
@@ -111,17 +111,22 @@ span.psw {
   <h2> Sign In To Award Hub </h2>
   <div class="container">
     <label for="uemail"><b>Email Address</b></label>
-    <input type="text" placeholder="Enter Email Address" name="uemail" required>
-
-   <label for="psw"><b>Password</b></label>
-   	<input type="password" placeholder="Enter Password" name="psw" required>
-
-   	<button type="submit" id="subButt">Login</button><br>
-   	<label>
-     	<input type="checkbox" checked="checked" name="remember"> Remember me
-   	</label>
- 	</div>
-
+    <input type="text" placeholder="Enter Email Address" id="uemail" name="uemail" required>
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" id="psw" name="psw" required>   
+    <button type="submit" id="subButt" name="subButt">Login</button><br>
+    <label>
+    <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+  <div class="container" style="color:red;font-weight:bold"> 
+    <?php
+      if(isset($_GET["error"])){
+        $error = $_GET["error"];
+        echo "$error";
+     }
+    ?>	
+  </div>
   <div class="container" style="background-color:#f1f1f1">
    	<span class="psw">Forgot <a href="#">password?</a></span>
  	</div>

@@ -79,7 +79,7 @@
               </div> <!-- end card wrapper -->
             </div>
           </a>
-          <a href="#">
+          <a href="admin-biz-awards-by-branch.php">
             <div class="card border-light text-white bg-success mb-3">
               <div class="card-wrapper">
                 <div class="card-header text-center">View Awards Recieved by Branch Location</div>
@@ -89,7 +89,7 @@
             </div>
           </a>
         </div>
-        <!-- column chart -->
+        <!-- line chart -->
         <div class="row">
           <div class="col-md-12">
             <div class="chart" id="chart1"></div>

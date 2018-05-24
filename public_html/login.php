@@ -102,7 +102,7 @@ span.psw {
 
 
 
-<form action="/validator.php" method="POST" id="form_login">
+<form action="/loginValidator.php" method="POST" id="form_login">
   <div class="imgcontainer">
     <div class="logo">
       <?php include("images/logo.svg"); ?>

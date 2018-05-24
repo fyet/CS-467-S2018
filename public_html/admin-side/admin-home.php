@@ -36,7 +36,7 @@
         <!-- navigation cards -->
         <div class="row">
           <div class="col-xl">
-            <div class="card-deck">
+            <div class="card-deck remove-body-on-resize">
               <a href="manage-users.php">
                 <div class="card border-light text-white bg-primary mb-3">
                   <div class="card-wrapper">

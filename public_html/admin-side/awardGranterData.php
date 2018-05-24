@@ -2,13 +2,14 @@
 require_once('../config.php');
 
 //Recipient data
-$query = "SELECT  user.f_name AS 'fname',
-                  user.l_name AS 'lname',
-                  COUNT(award.id) AS 'awardsGiven'
-                  FROM award
+$query = "SELECT user.f_name AS 'fname',
+          user.l_name AS 'lname',
+          COUNT(award.id) AS 'awardsGiven',
+          FLOOR(DATEDIFF(CURDATE(), user.creation_date)/365) AS 'yearsWithAwardPrivileges'
+          FROM award
           INNER JOIN user ON award.user_id = user.id
           GROUP BY user.id
-          HAVING COUNT(award.id) > 0";
+          ORDER BY user.l_name ASC";
 
 $response = mysqli_query($dbc, $query);
 

@@ -37,8 +37,8 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                   <a class="dropdown-item" href="admin-biz-awards-by-user.php">User</a>
-                  <a class="dropdown-item" href="#">Region</a>
-                  <a class="dropdown-item" href="#">Department</a>
+                  <a class="dropdown-item" href="admin-biz-awards-by-manager.php">Manager</a>
+                  <a class="dropdown-item" href="admin-biz-awards-by-branch.php">Branch</a>
                 </div>
               </div>
             </div>
@@ -63,25 +63,6 @@
                 <div class="row mt-4">
                   <div class="col-xl">
                     <div class="h5">Award Recipients</div>
-                    <!--<div class="table-responsive">
-                      <table class="table table-hover table-bordered table-striped table-sm">
-                        <thead class="thead-dark">
-                          <tr>
-                            <th scope="col">First Name</th>
-                            <th scope="col">Last Name</th>
-                            <th scope="col">Award Count</th>
-                            <th scope="col">Hire Date</th>
-                            <th scope="col">Salary</th>
-                            <th scope="col">Job Title</th>
-                            <th scope="col">Manager</th>
-                            <th scope="col">Branch</th>
-                            <th scope="col">State</th>
-                          </tr>
-                        </thead>
-                        <tbody id="recipientAwardsTable">
-                        </tbody>
-                      </table>
-                    </div>-->
                   </div>
                 </div>
                 <!-- end users table -->
@@ -94,127 +75,8 @@
     </div>
   </div> <!-- End sidebar and page content -->
   <!-- start report controls -->
-  <?php include("components/reportControls.php"); ?>
+  <?php require_once "components/reportControls.php"; ?>
   <!-- end report controls -->
-  <!-- *************************************************************************
-                                Adjust filters modal
-  ************************************************************************** -->
-  <!-- <div  class="modal fade" id="editFiltersModal"
-        tabindex="-1" role="dialog"
-        aria-labelledby="editFiltersModal"
-        aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="editFiltersModalTitle">Adjust Report Filters</h5>
-          <button type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="row">
-              <div class="form-group col-md-12">
-                <label for="sortingCriteria">Sort by:</label>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">First</label>
-                  </div>
-                  <select class="custom-select" id="inputGroupSelect01">
-                    <option selected>Choose...</option>
-                    <option value="1"></option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="form-group col-md-12">
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect02">Second</label>
-                  </div>
-                  <select class="custom-select" id="inputGroupSelect02">
-                    <option selected>None</option>
-                    <option value="1"></option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="form-group col-md-12">
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend" style="width:60px;">
-                    <label class="input-group-text" for="inputGroupSelect03">Third</label>
-                  </div>
-                  <select class="custom-select" id="inputGroupSelect03">
-                    <option selected>None</option>
-                    <option value="1"></option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="form-group col-md-6">
-                <label for="userList">Award Granters</label>
-                <select class="custom-select" multiple size="5">
-                  <option selected>All</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-                <small class="form-text text-muted">
-                  (hold down the CTRL key to select multiple values)
-                </small>
-              </div>
-              <div class="form-group col-md-6" style="padding-left: 30px;">
-                <div class="row">
-                  <div class="row">
-                    <div class="form-group col-md-12">
-                      <label for="dateRange">Date range</label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="form-group col-md-6">
-                      <input type="date" name="startDate" class="form-control" min="1900-01-02">
-                      <small class="form-text text-muted">
-                        start date
-                      </small>
-                    </div>
-                    <div class="form-group col-md-6">
-                      <input type="date" name="endDate" class="form-control" min="2000-01-02">
-                      <small class="form-text text-muted">
-                        end date
-                      </small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary btn-sm mr-auto" data-dismiss="modal">
-            Exit without saving changes
-          </button>
-          <button type="button" class="btn btn-danger btn-sm" id="resetFilters">
-            Reset filters
-          </button>
-          <button type="button" class="btn btn-primary btn-sm" id="updateFilters">
-            Update report filters
-          </button>
-        </div>
-      </div>
-    </div>
-  </div> -->
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

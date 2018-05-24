@@ -10,39 +10,36 @@ $(document).ready(function(){
     data.addColumn('string', 'Full Name');
     data.addColumn('number', 'Awards Received');
 
-    // Get row data from AwardHub DB
-    var jsonData = $.ajax({
-      url: "awardRecipientData.php",
-      dataType: "json",
-      async: false
-    }).responseText;
-    //console.log(jsonData);
-    //Convert json string to array of objects
-    var obj = JSON.parse(jsonData);
     var rowData = [];
-    for (var i = 0; i < obj.length; i++) {
-      var fullName = obj[i].fname + ' ' + obj[i].lname;
-      var nextRow = [fullName, Number(obj[i].awardsReceived)];
+    var table = document.getElementsByClassName('google-visualization-table-table')[0];
+    for (var i = 1, row; row = table.rows[i]; i++) {
+      var nextRow = [];
+      var fullName = row.cells[0].innerHTML + ' ' + row.cells[1].innerHTML;
+      var nextRow = [fullName, Number(row.cells[2].innerHTML)];
       rowData.push(nextRow);
     }
-    //Add db data to DataTable
     data.addRows(rowData);
 
     //Get width of page-content element
     var chartWidth = $('.page-content').width();
+    //Get optimal height for chart ()
+    //Formula: windowHeight - topMenuHeight - pageTitleHeight - tabControlsHeight - reportControlsHeight
+    var chartHeight = $(window).height() - $('#topMenu').height() - $('#pageTitle').height() - $('#navTab').height() - $('#reportControls').height() - 200;
+    console.log(chartHeight);
     //Set chart options
     var options = {
-            title: "Number of Awards Received",
+            title: "Number of Awards Received by Employee",
             bar: {groupWidth: "95%"},
             legend: { position: "none" },
             width: chartWidth,
-            chartArea: {width:chartWidth,left:50,top:50,bottom:50,height:450}
+            height: chartHeight,
+            chartArea: {width:chartWidth,left:50,top:50,bottom:50,right:20,height:chartHeight}
     };
     // Instantiate and draw our chart, passing in some options.
     var chart = new google.visualization.ColumnChart(document.getElementById('chart1'));
 
     // Wait for the chart to finish drawing before calling the getImageURI() method.
-    google.visualization.events.addListener(chart, 'ready', function () {
+    google.visualization.events.addListener(chart, 'ready', function() {
       var imageURI = chart.getImageURI();
       chart.innerHTML = '<img src="' + imageURI + '">';
       $("#pngBtn").attr({
@@ -56,6 +53,10 @@ $(document).ready(function(){
 
   //Reload chart to match changes in window dimensions
   $(window).resize(function(){
+    drawChart1();
+  });
+  //Reload chart to match changes to table data (could be more specific)
+  $("#googleTable").bind("click", function(){
     drawChart1();
   });
 });

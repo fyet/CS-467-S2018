@@ -37,7 +37,7 @@
           <a href="admin-biz-awards-by-user.php">
             <div class="card border-light text-white bg-success mb-3">
               <div class="card-wrapper">
-                <div class="card-header text-center">View Awards Given by User</div>
+                <div class="card-header text-center">Award Data by User</div>
                 <div class="card-body">
                 </div>
               </div> <!-- end card wrapper -->
@@ -46,34 +46,16 @@
           <a href="admin-biz-awards-by-recipient.php">
             <div class="card border-light text-white bg-success mb-3">
               <div class="card-wrapper">
-                <div class="card-header text-center">View Awards Recieved By Individuals</div>
+                <div class="card-header text-center">Award Data by Recipient</div>
                 <div class="card-body">
                 </div>
               </div> <!-- end card wrapper -->
             </div>
           </a>
-          <a href="admin-biz-awards-by-department.php">
+          <a href="admin-biz-awards-by-manager.php">
             <div class="card border-light text-white bg-success mb-3">
               <div class="card-wrapper">
-                <div class="card-header text-center">View Awards Received by Departments</div>
-                <div class="card-body">
-                </div>
-              </div> <!-- end card wrapper -->
-            </div>
-          </a>
-          <a href="#">
-            <div class="card border-light text-white bg-success mb-3">
-              <div class="card-wrapper">
-                <div class="card-header text-center">View Awards Received by Managers' Employees</div>
-                <div class="card-body">
-                </div>
-              </div> <!-- end card wrapper -->
-            </div>
-          </a>
-          <a href="admin-biz-awards-by-region.php">
-            <div class="card border-light text-white bg-success mb-3">
-              <div class="card-wrapper">
-                <div class="card-header text-center">View Awards Received by Region</div>
+                <div class="card-header text-center">Award Data by Manager</div>
                 <div class="card-body">
                 </div>
               </div> <!-- end card wrapper -->
@@ -82,7 +64,7 @@
           <a href="admin-biz-awards-by-branch.php">
             <div class="card border-light text-white bg-success mb-3">
               <div class="card-wrapper">
-                <div class="card-header text-center">View Awards Recieved by Branch Location</div>
+                <div class="card-header text-center">Award Data by Branch</div>
                 <div class="card-body">
                 </div>
               </div> <!-- end card wrapper -->

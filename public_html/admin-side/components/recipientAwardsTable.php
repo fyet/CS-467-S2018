@@ -1,23 +1,41 @@
 <?php
 require_once('../../config.php');
-$query = "SELECT  recipient.f_name AS 'fname',
+/*$query = "SELECT  recipient.f_name AS 'fname',
                   recipient.l_name AS 'lname',
                   COUNT(award.id) AS 'awardsReceived' FROM award
                   INNER JOIN recipient ON award.recipient_id = recipient.id
                   GROUP BY recipient.id
-                  HAVING COUNT(award.id) > 0";
-$response = mysqli_query($dbc, $query);
+                  HAVING COUNT(award.id) > 0";*/
 
-//Open or create new file for writing
-//$CSV_file = 'awardsByRecipient.csv';
-//$fileHandler = fopen($CSV_file, 'w') or die('Cannot open file: '.$CSV_file);
+$query = "SELECT 	recipient.f_name AS 'First Name',
+		recipient.l_name AS 'Last Name',
+		COUNT(award.id) AS 'Award Count',
+        recipient.hire_date AS 'Hire Date',
+        recipient.salary AS 'Salary',
+        recipient.job_title AS 'Job Title',
+        CONCAT(manager.l_name, ', ', manager.f_name) AS 'Manager',
+        branch.name AS 'Branch',
+        branch.state_location AS 'State'
+FROM award
+INNER JOIN recipient ON award.recipient_id = recipient.id
+INNER JOIN manager ON recipient.manager_id = manager.id
+INNER JOIN branch ON recipient.branch_id = branch.id
+GROUP BY award.id";
+
+$response = mysqli_query($dbc, $query);
 
 while($row = mysqli_fetch_assoc($response)){
   //Add records as rows to HTML table
   echo "<tr>
-  <td> {$row['fname']} </td>
-  <td> {$row['lname']} </td>
-  <td> {$row['awardsReceived']} </td>
+  <td> {$row['First Name']} </td>
+  <td> {$row['Last Name']} </td>
+  <td> {$row['Award Count']} </td>
+  <td> {$row['Hire Date']} </td>
+  <td> {$row['Salary']} </td>
+  <td> {$row['Job Title']} </td>
+  <td> {$row['Manager']} </td>
+  <td> {$row['Branch']} </td>
+  <td> {$row['State']} </td>
   </tr>";
 }
 

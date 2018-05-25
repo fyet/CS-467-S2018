@@ -2,7 +2,7 @@
 require_once('../config.php');
 
 //Data for awards given by date
-$query = "SELECT accolade_date, COUNT(id) AS 'awardsGiven' FROM award GROUP BY award.accolade_date";
+$query = "SELECT accolade_date, COUNT(id) AS 'awardsGiven' FROM award GROUP BY accolade_date ORDER BY accolade_date ASC";
 
 $response = mysqli_query($dbc, $query);
 

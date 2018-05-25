@@ -25,7 +25,7 @@ table button svg {
 }
 .card {
   min-width: 300px;
-  max-width: 500px;
+  /*max-width: 500px;*/
 }
 .card-wrapper:hover {
   background-color: rgba(0, 0, 0, 0.3); /*darken on hover*/

@@ -33,43 +33,73 @@
             <p class="h3">Business Insights</p>
           </div>
         </div>
-        <div class="card-deck">
-          <a href="admin-biz-awards-by-user.php">
-            <div class="card border-light text-white bg-success mb-3">
-              <div class="card-wrapper">
-                <div class="card-header text-center">Award Data by User</div>
-                <div class="card-body">
+        <div class="card text-center">
+          <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item">
+                <a class="nav-link active" href="#bi-tab-home" role="tab" data-toggle="tab">
+                  Reporting Tools
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#bi-tab-diy" role="tab" data-toggle="tab">
+                  Do-It-Yourself Data
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="bi-tab-home" role="tabpanel">
+              <div class="card-body">
+                <h5 class="card-title">Pre-baked Solutions for Your Business Needs</h5>
+                <p class="card-text">
+                  Want colorful, interactive charts and tables to spice up your next report? With
+                  our Google Charts-powered tools, you'll be able to save your favorite graphs as
+                  PNGs and export data to CSVs.
+                </p>
+                <p class="card-text">
+                  Select from the following categories to get started on your next data adventure!
+                </p>
+                <div class="row">
+                  <div class="col-sm mb-2">
+                    <a href="admin-biz-awards-by-user.php" class="btn btn-sm btn-primary">
+                      Award Data by User
+                    </a>
+                  </div>
+                  <div class="col-sm mb-2">
+                    <a href="admin-biz-awards-by-recipient.php" class="btn btn-sm btn-success">
+                      Award Data by Recipient
+                    </a>
+                  </div>
+                  <div class="col-sm mb-2">
+                    <a href="admin-biz-awards-by-manager.php" class="btn btn-sm btn-danger">
+                      Award Data by Manager
+                    </a>
+                  </div>
+                  <div class="col-sm">
+                    <a href="admin-biz-awards-by-branch.php" class="btn btn-sm btn-secondary">
+                      Award Data by Branch
+                    </a>
+                  </div>
                 </div>
-              </div> <!-- end card wrapper -->
+              </div>
             </div>
-          </a>
-          <a href="admin-biz-awards-by-recipient.php">
-            <div class="card border-light text-white bg-success mb-3">
-              <div class="card-wrapper">
-                <div class="card-header text-center">Award Data by Recipient</div>
-                <div class="card-body">
-                </div>
-              </div> <!-- end card wrapper -->
+            <div class="tab-pane fade" id="bi-tab-diy" role="tabpanel">
+              <div class="card-body">
+                <h5 class="card-title">Raw Records for the Data-Miners</h5>
+                <p class="card-text">
+                  For those who like to work without constraints, we've put together
+                  all of your organization's award data into one minimally-filtered CSV file.
+                </p>
+                <p class="card-text">
+                  Hit the button below to download the AwardHub super table!
+                </p>
+                <a href="allDataToCSV.php" class="btn btn-sm btn-warning" id="csvBtn">
+                  Download AwardHub Data as CSV file
+                </a>
+              </div>
             </div>
-          </a>
-          <a href="admin-biz-awards-by-manager.php">
-            <div class="card border-light text-white bg-success mb-3">
-              <div class="card-wrapper">
-                <div class="card-header text-center">Award Data by Manager</div>
-                <div class="card-body">
-                </div>
-              </div> <!-- end card wrapper -->
-            </div>
-          </a>
-          <a href="admin-biz-awards-by-branch.php">
-            <div class="card border-light text-white bg-success mb-3">
-              <div class="card-wrapper">
-                <div class="card-header text-center">Award Data by Branch</div>
-                <div class="card-body">
-                </div>
-              </div> <!-- end card wrapper -->
-            </div>
-          </a>
+          </div>
         </div>
         <!-- line chart -->
         <div class="row">

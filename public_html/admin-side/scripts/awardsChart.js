@@ -1,3 +1,21 @@
+//Takes two string dates ('YYYY-MM-DD') and return a list of dates in the range (non-inclusive)
+//Credit: https://stackoverflow.com/questions/4413590/javascript-get-array-of-dates-between-2-dates
+Date.prototype.addDays = function(days) {
+    var date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+}
+
+function getDatesBetween(startDate, stopDate) {
+    var dateArray = new Array();
+    var currentDate = startDate.addDays(1);
+    while (currentDate < stopDate) {
+        dateArray.push(new Date (currentDate));
+        currentDate = currentDate.addDays(1);
+    }
+    return dateArray;
+}
+
 $(document).ready(function(){
   google.charts.load('current', {'packages':['corechart']});
   google.charts.setOnLoadCallback(drawChart1);
@@ -7,7 +25,7 @@ $(document).ready(function(){
     var data = new google.visualization.DataTable();
 
     // Add column headings manually
-    data.addColumn('string', 'Date');
+    data.addColumn('date', 'Date');
     data.addColumn('number', 'Award Count');
 
     // Get row data from AwardHub DB
@@ -20,11 +38,21 @@ $(document).ready(function(){
     var obj = JSON.parse(jsonData);
     var rowData = [];
     for (var i = 0; i < obj.length; i++) {
-      var nextRow = [obj[i].accolade_date, Number(obj[i].awardsGiven)];
+      //Add in-between dates to data table
+      if (i > 0) {
+        var betweenDates = getDatesBetween(new Date(obj[i-1].accolade_date), new Date(obj[i].accolade_date));
+        betweenDates.forEach(function(d){
+          rowData.push([d, 0]);
+        });
+      }
+      //Add current date to data table
+      var nextRow = [new Date(obj[i].accolade_date), Number(obj[i].awardsGiven)];
       rowData.push(nextRow);
     }
     //Add db data to DataTable
     data.addRows(rowData);
+
+
 
     //Get width of page-content element
     var chartWidth = $('.page-content').width();

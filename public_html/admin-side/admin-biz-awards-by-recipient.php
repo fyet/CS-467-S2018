@@ -16,14 +16,14 @@
   <!-- *************************************************************************
                               top horizontal navbar
   ************************************************************************** -->
-  <?php include("components/navbar.php"); ?>
+  <?php require_once "components/navbar.php"; ?>
   <!-- Sidebar and page content wrappers -->
   <div class="container-fluid">
     <div class="row">
       <!-- *********************************************************************
                                   responsive sidebar
       ********************************************************************** -->
-      <?php include("components/sidebar.php"); ?>
+      <?php require_once "components/sidebar.php"; ?>
       <!-- *********************************************************************
                                     page content
       ********************************************************************** -->
@@ -44,8 +44,12 @@
             </div>
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Chart view</a>
-                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Data view</a>
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
+                  Chart view
+                </a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
+                  Data view
+                </a>
               </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">

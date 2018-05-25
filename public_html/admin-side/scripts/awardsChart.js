@@ -52,8 +52,6 @@ $(document).ready(function(){
     //Add db data to DataTable
     data.addRows(rowData);
 
-
-
     //Get width of page-content element
     var chartWidth = $('.page-content').width();
     //Set chart options

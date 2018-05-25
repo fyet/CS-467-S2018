@@ -1,11 +1,5 @@
 <?php
-require_once('../../config.php');
-/*$query = "SELECT  recipient.f_name AS 'fname',
-                  recipient.l_name AS 'lname',
-                  COUNT(award.id) AS 'awardsReceived' FROM award
-                  INNER JOIN recipient ON award.recipient_id = recipient.id
-                  GROUP BY recipient.id
-                  HAVING COUNT(award.id) > 0";*/
+require_once '../../config.php';
 
 $query = "SELECT 	recipient.f_name AS 'First Name',
 		recipient.l_name AS 'Last Name',

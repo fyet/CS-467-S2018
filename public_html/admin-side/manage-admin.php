@@ -1,3 +1,5 @@
+<?php require '../sessionValidator.php';?>
+
 <!doctype html>
 <html lang="en">
 <head>

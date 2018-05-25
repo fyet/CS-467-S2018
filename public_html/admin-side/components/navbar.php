@@ -18,7 +18,7 @@
   <!-- Start logout button -->
   <ul class="nav justify-content-end">
     <li class="nav-item d-inline-block">
-      <a class="btn btn-light" href="#">logout</a>
+      <a class="btn btn-light" href="http://18.188.194.159/killSession.php">logout</a>
     </li>
   </ul>
   <!-- End logout button -->

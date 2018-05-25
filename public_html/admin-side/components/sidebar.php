@@ -21,7 +21,7 @@
       <div class="sidebar-text">business insights</div>
     </a>
     <!-- Logout button -->
-    <a class="btn btn-light" href="../login.php">
+    <a class="btn btn-light" href="http://18.188.194.159/killSession.php">
       <?php include("../images/Octicons/sign-out.svg"); ?>
       <div class="sidebar-text">logout</div>
     </a>

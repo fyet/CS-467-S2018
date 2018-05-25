@@ -1,5 +1,5 @@
 <?php
-require_once('../../config.php');
+require_once '../../config.php';
 $query = "SELECT id, email FROM user WHERE account_type='admin'";
 $response = mysqli_query($dbc, $query);
 

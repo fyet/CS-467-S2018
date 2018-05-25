@@ -67,6 +67,3 @@ switch($_SERVER['REQUEST_METHOD']) {
 
 //close DB connection
 mysqli_close($dbc);
-
-//PHP error log location for Matt's local environment:
-//   /Applications/MAMP/logs/php_error.log

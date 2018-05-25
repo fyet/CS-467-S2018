@@ -4,14 +4,13 @@ require_once('../config.php');
 //Recipient data
 $query = "SELECT manager.f_name AS 'fname',
           manager.l_name AS 'lname',
-          COUNT(award.id) AS 'awardCount',
-          FLOOR(AVG(recipient.salary)) AS 'avgSalary',
-          COUNT(recipient.id) AS 'awardedEmployeeCount'
+          COUNT( award.id ) AS 'awardCount',
+          FLOOR( AVG( recipient.salary ) ) AS 'avgSalary',
+          COUNT( DISTINCT recipient.id ) AS 'awardedEmployeeCount'
           FROM award
           INNER JOIN recipient ON award.recipient_id = recipient.id
           INNER JOIN manager ON recipient.manager_id = manager.id
-          GROUP BY manager.id
-          ORDER BY manager.l_name ASC";
+          GROUP BY manager.id";
 
 $response = mysqli_query($dbc, $query);
 

@@ -16,13 +16,17 @@ switch($_SERVER['REQUEST_METHOD']) {
     //Generate 8 character temporary password
     //Source: https://stackoverflow.com/questions/6101956/generating-a-random-password-in-php
     $pwd = str_shuffle(bin2hex(openssl_random_pseudo_bytes(4)));
+    //Hash temp. password before adding to DB
+    //Source: http://php.net/manual/en/function.password-hash.php
+    $hashed_pwd = password_hash($pwd, PASSWORD_DEFAULT);
+    $date = date("Y-m-d");
     $creationDate = date("Y-m-d");
     $lastChange = $creationDate;
     $type = 'standard'; //Set manually
     //Add form data to DB
     $query = "INSERT INTO user (f_name, l_name, email, psword, creation_date, account_type, last_change) VALUES (?,?,?,?,?,?,?)";
     $stmt = mysqli_prepare($dbc, $query);
-    mysqli_stmt_bind_param($stmt, 'sssssss', $f_name, $l_name, $email, $pwd, $creationDate, $type, $lastChange);
+    mysqli_stmt_bind_param($stmt, 'sssssss', $f_name, $l_name, $email, $hashed_pwd, $creationDate, $type, $lastChange);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     //Send email to new user

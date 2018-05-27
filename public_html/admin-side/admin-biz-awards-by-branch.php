@@ -1,4 +1,4 @@
-<?php require '../sessionValidator.php';?>
+<!-- <?php require '../sessionValidator.php';?> -->
 
 <!doctype html>
 <html lang="en">
@@ -106,7 +106,7 @@
 
       //Get data from DB
       var jsonData = $.ajax({
-        url: "awardBranchData.php",
+        url: "PHP/awardBranchData.php",
         dataType: "json",
         async: false
       }).responseText;

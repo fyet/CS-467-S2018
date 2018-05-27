@@ -1,4 +1,4 @@
-<?php require '../sessionValidator.php';?>
+<!--<?php require '../sessionValidator.php';?>-->
 
 <!doctype html>
 <html lang="en">
@@ -88,15 +88,15 @@
             </div>
             <div class="tab-pane fade" id="bi-tab-diy" role="tabpanel">
               <div class="card-body">
-                <h5 class="card-title">Raw Records for the Data-Miners</h5>
+                <h5 class="card-title">Raw Records for Data-Miners</h5>
                 <p class="card-text">
                   For those who like to work without constraints, we've put together
                   all of your organization's award data into one minimally-filtered CSV file.
                 </p>
                 <p class="card-text">
-                  Hit the button below to download the AwardHub super table!
+                  Hit the button below to download the AwardHub master table!
                 </p>
-                <a href="allDataToCSV.php" class="btn btn-sm btn-warning" id="csvBtn">
+                <a href="PHP/allDataToCSV.php" class="btn btn-sm btn-warning" id="csvBtn">
                   Download AwardHub Data as CSV file
                 </a>
               </div>
@@ -113,7 +113,6 @@
       </div>
     </div>
   </div> <!-- End sidebar and page content -->
-
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

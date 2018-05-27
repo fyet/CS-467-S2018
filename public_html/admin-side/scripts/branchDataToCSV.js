@@ -1,6 +1,6 @@
-//Bind PNG to GET request on click event
+//Adds link to CSV download functions to report control button
 $(document).ready(function(){
   $("#csvBtn").attr({
-    "href": "branchDataToCSV.php"
+    "href": "PHP/branchDataToCSV.php"
   });
 });

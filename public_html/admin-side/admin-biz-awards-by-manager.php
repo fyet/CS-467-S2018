@@ -1,4 +1,4 @@
-<?php require '../sessionValidator.php';?>
+<!-- <?php require '../sessionValidator.php';?> -->
 
 <!doctype html>
 <html lang="en">
@@ -106,7 +106,7 @@
 
       //Get data from DB
       var jsonData = $.ajax({
-        url: "awardManagerData.php",
+        url: "PHP/awardManagerData.php",
         dataType: "json",
         async: false
       }).responseText;
@@ -132,7 +132,7 @@
                         cssClassNames:{}});
     }
   </script>
-  <script type="text/javascript" src="scripts/managerDataToCSV.js"></script>
   <script type="text/javascript" src="scripts/awardManagerChart.js"></script>
+  <script type="text/javascript" src="scripts/managerDataToCSV.js"></script>
 </body>
 </html>

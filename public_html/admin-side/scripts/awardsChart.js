@@ -16,6 +16,7 @@ function getDatesBetween(startDate, stopDate) {
     return dateArray;
 }
 
+
 $(document).ready(function(){
   google.charts.load('current', {'packages':['corechart']});
   google.charts.setOnLoadCallback(drawChart1);
@@ -30,7 +31,7 @@ $(document).ready(function(){
 
     // Get row data from AwardHub DB
     var jsonData = $.ajax({
-      url: "awardsData.php",
+      url: "PHP/awardsData.php",
       dataType: "json",
       async: false
     }).responseText;

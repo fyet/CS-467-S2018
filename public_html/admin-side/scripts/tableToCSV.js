@@ -1,6 +1,6 @@
 //Bind PNG to GET request on click event
 $(document).ready(function(){
   $("#csvBtn").attr({
-    "href": "tableToCSV.php"
+    "href": "PHP/tableToCSV.php"
   });
 });

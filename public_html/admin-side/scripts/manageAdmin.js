@@ -15,7 +15,7 @@ $(document).ready(function(){
     //Submit form to be handle by PHP file
     $.ajax({
       type: "POST",
-      url: "manage-admin-router.php",
+      url: "PHP/manage-admin-router.php",
       data: payload,
       cache: false,
       success: function(){
@@ -44,7 +44,7 @@ $(document).ready(function(){
       var payload = JSON.stringify({id: id, email: adminEmail});
 
       $.ajax({
-        url: 'manage-admin-router.php',
+        url: 'PHP/manage-admin-router.php',
         type: 'PUT',
         data: payload,
         cache: false,
@@ -72,7 +72,7 @@ $(document).ready(function(){
       var id = $("#deleteID").val();
 
       $.ajax({
-        url: 'manage-admin-router.php?id=' + id,
+        url: 'PHP/manage-admin-router.php?id=' + id,
         type: 'DELETE',
         cache: false,
         success: function(result){

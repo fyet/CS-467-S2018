@@ -1,5 +1,5 @@
 <?php
-require_once('../config.php');
+require_once '../../config.php';
 
 //Recipient data
 $query = "SELECT manager.f_name AS 'fname',

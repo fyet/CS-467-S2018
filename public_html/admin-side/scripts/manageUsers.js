@@ -19,7 +19,7 @@ $(document).ready(function(){
     //Submit form to be handle by PHP file
     $.ajax({
       type: "POST",
-      url: "manage-users-router.php",
+      url: "PHP/manage-users-router.php",
       data: payload,
       cache: false,
       success: function(){
@@ -58,7 +58,7 @@ $(document).ready(function(){
                                     l_name: lastName,
                                     email: userEmail});
       $.ajax({
-        url: 'manage-users-router.php',
+        url: 'PHP/manage-users-router.php',
         type: 'PUT',
         data: payload,
         cache: false,
@@ -86,7 +86,7 @@ $(document).ready(function(){
       var id = $("#userIDtoDelete").val();
 
       $.ajax({
-        url: 'manage-users-router.php?id=' + id,
+        url: 'PHP/manage-users-router.php?id=' + id,
         type: 'DELETE',
         cache: false,
         success: function(result){

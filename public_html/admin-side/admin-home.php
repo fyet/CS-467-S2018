@@ -1,4 +1,4 @@
-<!-- <?php require '../sessionValidator.php';?> -->
+<?php require '../sessionValidator.php';?>s
 
 <!doctype html>
 <html lang="en">

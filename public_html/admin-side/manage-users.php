@@ -88,26 +88,43 @@
           </button>
         </div>
         <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="userFirstName">First name</label>
-              <input  type="text"
-                      class="form-control"
-                      id="firstNameNew"
-                      aria-describedby="firstNameHelp"
-                      placeholder="Enter first name">
-              <label for="userLastNameNew">Last name</label>
-              <input  type="text"
-                      class="form-control"
-                      id="lastNameNew"
-                      aria-describedby="lastNameHelp"
-                      placeholder="Enter last name">
-              <label for="userEmail">Email address</label>
-              <input  type="email"
-                      class="form-control"
-                      id="userEmailNew"
-                      aria-describedby="emailHelp"
-                      placeholder="Enter email">
+          <form id="addUserForm" novalidate>
+            <div class="form-row">
+              <div class="col-md-6 mb-3">
+                <label for="userFirstName">First name</label>
+                <input  type="text"
+                        class="form-control"
+                        id="firstNameNew"
+                        aria-describedby="firstNameHelp"
+                        placeholder="Enter first name"
+                        required>
+                <div class="valid-feedback">Good to go!</div>
+                <div class="invalid-feedback">Please enter a first name</div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="userLastNameNew">Last name</label>
+                <input  type="text"
+                        class="form-control"
+                        id="lastNameNew"
+                        aria-describedby="lastNameHelp"
+                        placeholder="Enter last name"
+                        required>
+                <div class="valid-feedback">Good to go!</div>
+                <div class="invalid-feedback">Please enter a last name</div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-12">
+                <label for="userEmail">Email address</label>
+                <input  type="email"
+                        class="form-control"
+                        id="userEmailNew"
+                        aria-describedby="emailHelp"
+                        placeholder="Enter email"
+                        required>
+                <div class="valid-feedback">Good to go!</div>
+                <div class="invalid-feedback invalid-feedback-email">Please provide a valid email address</div>
+              </div>
             </div>
           </form>
         </div>
@@ -141,26 +158,47 @@
           </button>
         </div>
         <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="userLastName">First name</label>
-              <input  type="text"
-                      class="form-control"
-                      id="userFirstNameToEdit"
-                      aria-describedby="firstNameHelp"
-                      placeholder="Enter first name">
-              <label for="userLastName">Last name</label>
-              <input  type="text"
-                      class="form-control"
-                      id="userLastNameToEdit"
-                      aria-describedby="lastNameHelp"
-                      placeholder="Enter last name">
-              <label for="userEmail">Email address</label>
-              <input  type="email"
-                      class="form-control"
-                      id="userEmailToEdit"
-                      aria-describedby="emailHelp"
-                      placeholder="Enter email">
+          <form id="editUserForm" novalidate>
+            <div class="form-row">
+              <div class="col-md-6 mb-3">
+                <label for="userFirstName">First name</label>
+                <input  type="text"
+                        class="form-control is-valid"
+                        id="userFirstNameToEdit"
+                        aria-describedby="firstNameHelp"
+                        placeholder="Enter first name"
+                        required>
+                <div class="valid-feedback">Good to go!</div>
+                <div class="invalid-feedback">Please enter a first name</div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="userLastName">Last name</label>
+                <input  type="text"
+                        class="form-control is-valid"
+                        id="userLastNameToEdit"
+                        aria-describedby="lastNameHelp"
+                        placeholder="Enter last name"
+                        required>
+                <div class="valid-feedback">Good to go!</div>
+                <div class="invalid-feedback">Please enter a last name</div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-12">
+                <label for="userEmail">Email address</label>
+                <input  type="email"
+                        class="form-control is-valid"
+                        id="userEmailToEdit"
+                        aria-describedby="emailHelp"
+                        placeholder="Enter email"
+                        required>
+                <div class="valid-feedback">
+                  Good to go!
+                </div>
+                <div class="invalid-feedback invalid-feedback-email">
+                  Please provide a valid email address
+                </div>
+              </div>
             </div>
             <input id="userIDtoEdit" style="visibility: hidden;">
           </form>
@@ -212,6 +250,7 @@
       </div>
     </div>
   </div>
+  <?php include('components/passwordModal.php'); ?>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -222,5 +261,6 @@
     $("#manageUsersBtn").addClass("active"); //add active class to manage users button
   </script>
   <script type="text/javascript" src="scripts/manageUsers.js"></script>
+  <script type="text/javascript" src="scripts/changePassword.js"></script>
 </body>
 </html>

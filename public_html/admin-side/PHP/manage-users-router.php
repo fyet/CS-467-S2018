@@ -1,11 +1,24 @@
 <?php
 //Establish connection with DB
-require_once '../../config.php';
+require '../../config.php';
 // Import necessary PHPmailer classes and custom functions
-require_once '../emailHandler.php';
+require '../../emailHandler.php';
 
 //Route request based on HTTP method
 switch($_SERVER['REQUEST_METHOD']) {
+  case "GET": //Checks if given email is in DB
+    $query = "SELECT email FROM user WHERE email = ?";
+    $stmt = mysqli_prepare($dbc, $query);
+    mysqli_stmt_bind_param($stmt, 's', $_GET['email']);
+    mysqli_stmt_execute($stmt);
+    // bind result variables
+    mysqli_stmt_bind_result($stmt, $email);
+    // fetch values
+    if (mysqli_stmt_fetch($stmt)) {  //if email exists already
+      var_dump($email);
+    }
+    mysqli_stmt_close($stmt);
+    break;
   case "POST": //Creates new admin
     //Get form values from POST
     $bodyData = file_get_contents('php://input');

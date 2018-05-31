@@ -1,18 +1,28 @@
-//Takes two string dates ('YYYY-MM-DD') and return a list of dates in the range (non-inclusive)
-//Credit: https://stackoverflow.com/questions/4413590/javascript-get-array-of-dates-between-2-dates
 Date.prototype.addDays = function(days) {
     var date = new Date(this.valueOf());
     date.setDate(date.getDate() + days);
     return date;
 }
 
+Date.prototype.subtractDays = function(days) {
+  var date = new Date(this.valueOf());
+  date.setDate(date.getDate() - days);
+  return date;
+}
+
+//Takes two date objects representing a range
+//Returns an array of bookend dates (0-2) in the range (non-inclusive)
+//Credit: https://stackoverflow.com/questions/4413590/javascript-get-array-of-dates-between-2-dates
 function getDatesBetween(startDate, stopDate) {
     var dateArray = new Array();
-    var currentDate = startDate.addDays(1);
-    while (currentDate < stopDate) {
-        dateArray.push(new Date (currentDate));
-        currentDate = currentDate.addDays(1);
-    }
+    var nextDate = startDate.addDays(1);
+    var penultimateDate = stopDate.subtractDays(1);
+    //add first date if necessary
+    if (nextDate < stopDate)
+        dateArray.push(new Date (nextDate));
+    //add second date if necessary
+    if (nextDate < penultimateDate)
+        dateArray.push(new Date (penultimateDate));
     return dateArray;
 }
 
@@ -35,6 +45,7 @@ $(document).ready(function(){
       dataType: "json",
       async: false
     }).responseText;
+
     //Convert json string to array of objects
     var obj = JSON.parse(jsonData);
     var rowData = [];

@@ -1,4 +1,4 @@
-<?php require '../sessionValidator.php';?> 
+<?php require '../sessionValidator.php';?>
 
 <!doctype html>
 <html lang="en">
@@ -79,6 +79,7 @@
   <!-- start report controls -->
   <?php require_once "components/reportControls.php"; ?>
   <!-- end report controls -->
+  <?php include('components/passwordModal.php'); ?>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -132,5 +133,7 @@
   </script>
   <script type="text/javascript" src="scripts/userDataToCSV.js"></script>
   <script type="text/javascript" src="scripts/awardGranterChart.js"></script>
+  <script type="text/javascript" src="scripts/changePassword.js"></script>
+  <script type="text/javascript" src="scripts/changePassword.js"></script>
 </body>
 </html>

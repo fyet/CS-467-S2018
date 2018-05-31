@@ -183,6 +183,7 @@
       </div>
     </div>
   </div>
+  <?php include('components/passwordModal.php'); ?>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -193,5 +194,6 @@
     $("#manageAdminBtn").addClass("active"); //add active class to manage admin button
   </script>
   <script type="text/javascript" src="scripts/manageAdmin.js"></script>
+  <script type="text/javascript" src="scripts/changePassword.js"></script>
 </body>
 </html>

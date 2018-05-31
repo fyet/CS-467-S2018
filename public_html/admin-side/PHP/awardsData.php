@@ -1,5 +1,5 @@
 <?php
-require_once'../../config.php';
+require_once '../../config.php';
 
 //Data for awards given by date
 $query = "SELECT accolade_date, COUNT(id) AS 'awardsGiven' FROM award GROUP BY accolade_date ORDER BY accolade_date ASC";

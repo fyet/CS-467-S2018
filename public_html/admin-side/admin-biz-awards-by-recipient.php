@@ -83,6 +83,7 @@
   <!-- start report controls -->
   <?php require_once "components/reportControls.php"; ?>
   <!-- end report controls -->
+  <?php include('components/passwordModal.php'); ?>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -147,5 +148,6 @@
   <script type="text/javascript" src="scripts/awardRecipientLineChart.js"></script>
   <script type="text/javascript" src="scripts/recipientAwardsTable.js"></script>
   <script type="text/javascript" src="scripts/tableToCSV.js"></script>
+  <script type="text/javascript" src="scripts/changePassword.js"></script>
 </body>
 </html>

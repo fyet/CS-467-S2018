@@ -1,10 +1,13 @@
+.btn-txt{
+  display: none;
+}
+
 .list-group{
     z-index:10;
     display:none;
     position:absolute;
     color:red;
 }
-
 
 body {
   padding-top: 50px;
@@ -129,11 +132,6 @@ table button svg {
       padding-right: 40px;
       padding-left: 210px;
     }
-
-    #topMenu .topMenuBtnText {
-      display: inline-block;
-    }
-
     #sidebar {
         padding-top: 20px;
         width: 170px;
@@ -164,5 +162,8 @@ table button svg {
     #reportControls svg {
       width: 40px;
       height: 40px;
+    }
+    .btn-txt {
+      display: inline-block;
     }
 }

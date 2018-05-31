@@ -23,17 +23,17 @@
               data-toggle='modal'
               data-target="#passwordModal">
         <?php include('../images/Octicons/key.svg');?>
-        <div class="topMenuBtnText">
+        <span class="btn-txt">
           &nbspchange my password
-        </div>
+        </span>
       </button>
     </li>
     <li class="nav-item d-inline-block">
       <a class="btn btn-light" href="http://18.188.194.159/killSession.php">
         <?php include('../images/Octicons/sign-out.svg');?>
-        <div class="topMenuBtnText">
+        <span class="btn-txt">
           &nbsplogout
-        </div>
+        </span>
       </a>
     </li>
   </ul>

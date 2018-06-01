@@ -122,8 +122,12 @@
                         aria-describedby="emailHelp"
                         placeholder="Enter email"
                         required>
-                <div class="valid-feedback">Good to go!</div>
-                <div class="invalid-feedback invalid-feedback-email">Please provide a valid email address</div>
+                <div class="valid-feedback">
+                  Good to go!
+                </div>
+                <div class="invalid-feedback invalid-feedback-email">
+                  Please provide a valid email address
+                </div>
               </div>
             </div>
           </form>

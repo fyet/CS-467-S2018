@@ -88,20 +88,31 @@
         </div>
         <div class="modal-body">
           <!-- Data is sent to current page -->
-          <form method="post" id="newAdminForm">
+          <form method="post" id="newAdminForm" novalidate>
             <div class="form-group">
               <label for="adminEmail">Email address</label>
-              <input type="email" class="form-control" id="adminEmail" aria-describedby="emailHelp" placeholder="Enter email">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary btn-sm mr-auto" data-dismiss="modal">
-                Exit without saving changes
-              </button>
-              <button id="submitNewAdmin" type="button" class="btn btn-primary btn-sm">
-                Submit new administrator
-              </button>
+              <input  type="email"
+                      class="form-control"
+                      id="adminEmail"
+                      aria-describedby="emailHelp"
+                      placeholder="Enter email"
+                      required>
+              <div class="valid-feedback">
+                Good to go!
+              </div>
+              <div class="invalid-feedback invalid-feedback-email">
+                Please provide a valid email address
+              </div>
             </div>
           </form>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-sm mr-auto" data-dismiss="modal">
+              Exit without saving changes
+            </button>
+            <button id="submitNewAdmin" type="button" class="btn btn-primary btn-sm">
+              Submit new administrator
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -125,15 +136,21 @@
           </button>
         </div>
         <div class="modal-body">
-          <form>
+          <form id="editAdminForm" novalidate>
             <div class="form-group">
               <label for="adminEmail">Email address</label>
               <input  type="email"
-                      class="form-control"
+                      class="form-control is-valid"
                       id="adminEmailToEdit"
                       aria-describedby="emailHelp">
+              <div class="valid-feedback">
+                Good to go!
+              </div>
+              <div class="invalid-feedback invalid-feedback-email">
+                Please provide a valid email address
+              </div>
             </div>
-            <input id="editID" style="visiblity: hidden;">
+            <input id="editID" style="visibility: hidden;">
           </form>
         </div>
         <div class="modal-footer">

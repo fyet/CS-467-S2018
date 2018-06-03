@@ -1,6 +1,5 @@
+<!DOCTYPE html>
 <?php require '../sessionValidator.php';?>
-
-<!doctype html>
 <html lang="en">
 <head>
   <title>Manage Users</title>
@@ -133,7 +132,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary btn-sm mr-auto" data-dismiss="modal">
+          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">
             Exit without saving changes
           </button>
           <button id="submitNewUser" type="button" class="btn btn-primary btn-sm">
@@ -208,7 +207,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary btn-sm mr-auto" data-dismiss="modal">
+          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">
             Exit without saving changes
           </button>
           <button type="button" class="btn btn-primary btn-sm" id="submitEdit">
@@ -244,7 +243,7 @@
           <input id="userIDtoDelete" style="visibility: hidden;">
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary btn-sm mr-auto" data-dismiss="modal">
+          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">
             No, exit without saving changes
           </button>
           <button type="button" class="btn btn-primary btn-sm" id="submitUserDelete">

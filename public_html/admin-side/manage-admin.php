@@ -1,6 +1,5 @@
+<!DOCTYPE html>
 <?php require '../sessionValidator.php';?>
-
-<!doctype html>
 <html lang="en">
 <head>
   <title>Manage Admin</title>
@@ -106,7 +105,7 @@
             </div>
           </form>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary btn-sm mr-auto" data-dismiss="modal">
+            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">
               Exit without saving changes
             </button>
             <button id="submitNewAdmin" type="button" class="btn btn-primary btn-sm">
@@ -154,7 +153,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary btn-sm mr-auto" data-dismiss="modal">
+          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">
             Exit without saving changes
           </button>
           <button type="button" class="btn btn-primary btn-sm" id="submitEdit">
@@ -190,7 +189,7 @@
           <input id="deleteID" style="visibility: hidden;"> <!-- Holds admin id -->
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary btn-sm mr-auto" data-dismiss="modal">
+          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">
             No, exit without saving changes
           </button>
           <button type="button" class="btn btn-primary btn-sm" id="submitDelete">

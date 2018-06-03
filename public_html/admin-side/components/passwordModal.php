@@ -34,7 +34,7 @@
           </div>
         </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary btn-sm mr-auto" data-dismiss="modal">
+            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">
               Cancel
             </button>
             <button id="pwButton" type="button" class="btn btn-primary btn-sm" disabled>

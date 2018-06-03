@@ -24,7 +24,7 @@
               data-target="#passwordModal">
         <?php include('../images/Octicons/key.svg');?>
         <span class="btn-txt">
-          &nbspchange my password
+          &nbsp;change my password
         </span>
       </button>
     </li>
@@ -32,7 +32,7 @@
       <a class="btn btn-light" href="http://18.188.194.159/killSession.php">
         <?php include('../images/Octicons/sign-out.svg');?>
         <span class="btn-txt">
-          &nbsplogout
+          &nbsp;logout
         </span>
       </a>
     </li>

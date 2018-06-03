@@ -1,6 +1,5 @@
+<!DOCTYPE html>
 <?php require '../sessionValidator.php';?>
-
-<!doctype html>
 <html lang="en">
 <head>
   <title>Business Insights - Manager</title>

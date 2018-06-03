@@ -1,6 +1,5 @@
-<?php require '../sessionValidator.php';?>s
-
-<!doctype html>
+<!DOCTYPE html>
+<?php require '../sessionValidator.php';?>
 <html lang="en">
 <head>
   <title>Admin Home</title>

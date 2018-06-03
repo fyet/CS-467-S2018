@@ -52,7 +52,8 @@ function validateNameField(formID, fieldID, submitBtnID) {
       $('#addAdminModal').on('show.bs.modal')
  *Return value: none
  */
-function validateEmailField(formID, fieldID, submitBtnID, email=null){
+function validateEmailField(formID, fieldID, submitBtnID, email){
+  email = email || null; //Make email optional
   $(fieldID).off('input');
   $(fieldID).on('input', function(e){
     if (checkEmailFormat($(fieldID))){ //Format is valid
@@ -90,22 +91,22 @@ function checkNameFormat(inputElem){
  */
 function checkEmailAvailability(userEmail, emailFieldID, formID, btnID, startEmail){
   if (userEmail !== startEmail) {
-    $.get("PHP/manage-users-router.php", {email: userEmail}, function(data, success, headers, emailID=emailFieldID, fID=formID, bID=btnID){
+    $.get("PHP/manage-users-router.php", {email: userEmail}, function(data, success, headers){
       if (data) { //Email not available
-        $(emailID).removeClass('is-valid');
-        $(emailID).addClass('is-invalid');
+        $(emailFieldID).removeClass('is-valid');
+        $(emailFieldID).addClass('is-invalid');
         //Reset and change error message
         $('div.invalid-feedback-email').text('Account already exists with that address');
         //Disable form submit button
-        $(bID).prop('disabled', true);
+        $(btnID).prop('disabled', true);
       } else { //Email is valid and available
         //add is-valid class to input element
-        $(emailID).removeClass('is-invalid');
-        $(emailID).addClass('is-valid');
+        $(emailFieldID).removeClass('is-invalid');
+        $(emailFieldID).addClass('is-valid');
         //Reset and change error message
         $('div.valid-feedback').text('Good to go!');
-        if (formFieldsValid(fID))
-          $(bID).prop('disabled', false);
+        if (formFieldsValid(formID))
+          $(btnID).prop('disabled', false);
       }
     });
   } else {

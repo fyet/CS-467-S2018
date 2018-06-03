@@ -21,7 +21,8 @@ function loadTable(){
       $('#addAdminModal').on('show.bs.modal')
  *Return value: none
  */
-function validateEmailField(formID, fieldID, submitBtnID, email=null){
+function validateEmailField(formID, fieldID, submitBtnID, email){
+  email = email || null; //optional parameter
   $(fieldID).off('input');
   $(fieldID).on('input', function(e){
     if (checkEmailFormat($(fieldID))){ //Format is valid
@@ -49,38 +50,37 @@ function validateEmailField(formID, fieldID, submitBtnID, email=null){
       validateEmailField()
  *Return value: none
  */
-function checkEmailAvailability(userEmail, emailFieldID, formID, btnID, startEmail=null){
-  if (userEmail !== startEmail) {
-    $.get("PHP/manage-users-router.php", {email: userEmail}, function(data, success, headers, emailID=emailFieldID, fID=formID, bID=btnID){
-      if (data) { //Email not available
-        $(emailID).removeClass('is-valid');
-        $(emailID).addClass('is-invalid');
-        //Reset and change error message
-        $('div.invalid-feedback-email').text('Account already exists with that address');
-        //Disable submit button
-        $(bID).prop('disabled', true);
-      } else { //Email is valid and available
-        //add is-valid class to input element
-        $(emailID).removeClass('is-invalid');
-        $(emailID).addClass('is-valid');
-        //Reset and change error message
-        $('div.valid-feedback').text('Good to go!');
-        if (formFieldsValid(fID))
-        //Enable submit button
-        $(bID).prop('disabled', false);
-      }
-    });
-  } else {
-    //add is-valid class to input element
-    $(emailFieldID).removeClass('is-invalid');
-    $(emailFieldID).addClass('is-valid');
-    //Reset and change error message
-    $('div.valid-feedback').text('Good to go!');
-    if (formFieldsValid(formID))
-      //Enable submit button
-      $(btnID).prop('disabled', false);
-  }
-}
+ function checkEmailAvailability(userEmail, emailFieldID, formID, btnID, startEmail){
+   if (userEmail !== startEmail) {
+     $.get("PHP/manage-users-router.php", {email: userEmail}, function(data, success, headers){
+       if (data) { //Email not available
+         $(emailFieldID).removeClass('is-valid');
+         $(emailFieldID).addClass('is-invalid');
+         //Reset and change error message
+         $('div.invalid-feedback-email').text('Account already exists with that address');
+         //Disable form submit button
+         $(btnID).prop('disabled', true);
+       } else { //Email is valid and available
+         //add is-valid class to input element
+         $(emailFieldID).removeClass('is-invalid');
+         $(emailFieldID).addClass('is-valid');
+         //Reset and change error message
+         $('div.valid-feedback').text('Good to go!');
+         if (formFieldsValid(formID))
+           $(btnID).prop('disabled', false);
+       }
+     });
+   } else {
+     //add is-valid class to input element
+     $(emailFieldID).removeClass('is-invalid');
+     $(emailFieldID).addClass('is-valid');
+     //Reset and change error message
+     $('div.valid-feedback').text('Good to go!');
+     if (formFieldsValid(formID))
+       //Enable submit button
+       $(btnID).prop('disabled', false);
+   }
+ }
 
 
 /*Description: Tests email format against regular expression

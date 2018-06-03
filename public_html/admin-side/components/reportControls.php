@@ -3,7 +3,7 @@
           class="btn btn-primary btn-sm"
           float="right"
           id="csvBtn">
-    <?php include("../images/Octicons/desktop-download.svg"); ?>
+    <?php include "../images/Octicons/desktop-download.svg"; ?>
     <div class="reportControlsText">Download Data as .CSV File</div>
   </a>
   <div class="float-right">
@@ -11,7 +11,7 @@
             class="btn btn-success btn-sm"
             target="_blank"
             id="pngBtn">
-      <?php include("../images/Octicons/file-media.svg"); ?>
+      <?php include "../images/Octicons/file-media.svg"; ?>
       <div class="reportControlsText">View Chart as .PNG File</div>
     </a>
   </div>

@@ -22,7 +22,7 @@ function outputCSV($data, $fileName, $debug=false) {
   }
   fputcsv($output, $fieldNames);
 
-  if(debug)
+  if($debug)
     error_log(print_r($fieldNames,true)); //Prints field names to server log
 
   //Write column data to file

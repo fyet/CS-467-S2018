@@ -7,12 +7,11 @@
     <div class="reportControlsText">Download Data as .CSV File</div>
   </a>
   <div class="float-right">
-    <a type="button"
+    <button type="button"
             class="btn btn-success btn-sm"
-            target="_blank"
             id="pngBtn">
       <?php include "../images/Octicons/file-media.svg"; ?>
-      <div class="reportControlsText">View Chart as .PNG File</div>
-    </a>
+      <div class="reportControlsText">Open Chart Image in New Tab</div>
+    </button>
   </div>
 </nav>

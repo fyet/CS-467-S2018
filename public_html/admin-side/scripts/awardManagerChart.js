@@ -50,10 +50,12 @@ $(document).ready(function(){
     // Wait for the chart to finish drawing before calling the getImageURI() method.
     google.visualization.events.addListener(chart, 'ready', function() {
       var imageURI = chart.getImageURI();
-      chart.innerHTML = '<img src="' + imageURI + '">';
-      $("#pngBtn").attr({
-        "href": imageURI,
-        "data-target": "_blank"
+      //Open chart image in new tab when PNG button is clicked
+      $('#pngBtn').off(); //reset
+      $('#pngBtn').on('click', function(){
+        //Credit: https://stackoverflow.com/questions/46666559/base64-image-open-in-new-tab-window-is-not-allowed-to-navigate-top-frame-naviga
+        var imageTab = window.open();
+        imageTab.document.body.innerHTML = '<img src="' + imageURI + '">';
       });
     });
 

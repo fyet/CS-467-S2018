@@ -5,6 +5,7 @@ ini_set('display_errors',0);
 ini_set('log_errors',1);
 require_once('config.php');
 session_start();
+$_SESSION['location'] = 0;
 
 $id = $_GET['id'];
 

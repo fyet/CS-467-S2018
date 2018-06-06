@@ -47,6 +47,14 @@ button {
 	border-radius: 8px;
 }
 
+#holder{
+  text-align: center;
+  background-color:#BDC3C7;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
 
 #form_login {
 	display: table-cell;
@@ -101,36 +109,34 @@ span.psw {
 <body>
 
 
-
-<form action="/loginValidator.php" method="POST" id="form_login">
-  <div class="imgcontainer">
-    <div class="logo">
-      <?php include("images/logo.svg"); ?>
+<div class="container" id="holder">
+  <form action="/loginValidator.php" method="POST" id="form_login">
+    <div class="imgcontainer">
+      <div class="logo">
+        <?php include("images/logo.svg"); ?>
+      </div>
     </div>
-  </div>
-  <h2> Sign In To Award Hub </h2>
-  <div class="container">
-    <label for="uemail"><b>Email Address</b></label>
-    <input type="text" placeholder="Enter Email Address" id="uemail" name="uemail" required>
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" id="psw" name="psw" required>   
-    <button type="submit" id="subButt" name="subButt">Login</button><br>
-    <label>
-    <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
-  <div class="container" style="color:red;font-weight:bold"> 
-    <?php
-      if(isset($_GET["error"])){
-        $error = $_GET["error"];
-        echo "$error";
-     }
-    ?>	
-  </div>
-  <div class="container" style="background-color:#f1f1f1">
-   	<span class="psw">Forgot <a href="#">password?</a></span>
- 	</div>
-</form>
+    <h2> Sign In To Award Hub </h2>
+    <div class="container">
+      <label for="uemail"><b>Email Address</b></label>
+      <input type="text" placeholder="Enter Email Address" id="uemail" name="uemail" required>
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" id="psw" name="psw" required>   
+      <button type="submit" id="subButt" name="subButt">Login</button><br>
+    </div>
+    <div class="container" style="color:red;font-weight:bold"> 
+      <?php
+        if(isset($_GET["message"])){
+          $message = $_GET["message"];
+          echo "$message";
+       }
+      ?>	
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+     	<span class="psw">Forgot <a href="passwordReminder.php">password?</a></span>
+   	</div>
+  </form>
+</div>
 
 </body>
 </html>

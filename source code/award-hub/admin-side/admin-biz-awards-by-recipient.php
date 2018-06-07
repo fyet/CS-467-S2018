@@ -178,9 +178,9 @@
                         cssClassNames:{}});
     }
   </script>
-  <script type="text/javascript" src="scripts/awardRecipientLineChart.js"></script>
-  <script type="text/javascript" src="scripts/recipientAwardsTable.js"></script>
-  <script type="text/javascript" src="scripts/tableToCSV.js"></script>
-  <script type="text/javascript" src="scripts/changePassword.js"></script>
+  <script type="text/javascript" src="./scripts/awardRecipientLineChart.js"></script>
+  <script type="text/javascript" src="./scripts/recipientAwardsTable.js"></script>
+  <script type="text/javascript" src="./scripts/tableToCSV.js"></script>
+  <script type="text/javascript" src="./scripts/changePassword.js"></script>
 </body>
 </html>

@@ -168,8 +168,8 @@ if($_SESSION['accountType'] == "standard"){
                         cssClassNames:{}});
     }
   </script>
-  <script type="text/javascript" src="scripts/branchDataToCSV.js"></script>
-  <script type="text/javascript" src="scripts/awardBranchChart.js"></script>
-  <script type="text/javascript" src="scripts/changePassword.js"></script>
+  <script type="text/javascript" src="./scripts/branchDataToCSV.js"></script>
+  <script type="text/javascript" src="./scripts/awardBranchChart.js"></script>
+  <script type="text/javascript" src="./scripts/changePassword.js"></script>
 </body>
 </html>

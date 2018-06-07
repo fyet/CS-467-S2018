@@ -164,9 +164,8 @@
                         cssClassNames:{}});
     }
   </script>
-  <script type="text/javascript" src="scripts/userDataToCSV.js"></script>
-  <script type="text/javascript" src="scripts/awardGranterChart.js"></script>
-  <script type="text/javascript" src="scripts/changePassword.js"></script>
-  <script type="text/javascript" src="scripts/changePassword.js"></script>
+  <script type="text/javascript" src="./scripts/userDataToCSV.js"></script>
+  <script type="text/javascript" src="./scripts/awardGranterChart.js"></script>
+  <script type="text/javascript" src="./scripts/changePassword.js"></script>
 </body>
 </html>

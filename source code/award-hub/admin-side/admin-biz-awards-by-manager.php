@@ -166,8 +166,8 @@
                         cssClassNames:{}});
     }
   </script>
-  <script type="text/javascript" src="scripts/awardManagerChart.js"></script>
-  <script type="text/javascript" src="scripts/managerDataToCSV.js"></script>
-  <script type="text/javascript" src="scripts/changePassword.js"></script>
+  <script type="text/javascript" src="./scripts/awardManagerChart.js"></script>
+  <script type="text/javascript" src="./scripts/managerDataToCSV.js"></script>
+  <script type="text/javascript" src="./scripts/changePassword.js"></script>
 </body>
 </html>

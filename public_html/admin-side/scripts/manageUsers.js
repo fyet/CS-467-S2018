@@ -90,6 +90,7 @@ function checkNameFormat(inputElem){
  *Return value: none
  */
 function checkEmailAvailability(userEmail, emailFieldID, formID, btnID, startEmail){
+  startEmail = startEmail || null;
   if (userEmail !== startEmail) {
     $.get("PHP/manage-users-router.php", {email: userEmail}, function(data, success, headers){
       if (data) { //Email not available

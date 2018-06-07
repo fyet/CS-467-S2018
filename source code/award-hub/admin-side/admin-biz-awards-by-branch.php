@@ -68,7 +68,7 @@ if($_SESSION['accountType'] == "standard"){
                     <p style="font-size:0.75rem;">
                       Chart tips: Hover over the graph below to interact with the data
                       and gain more insights. If you want to see the data it's based on
-                      or change or change how it's sorted, check out the 'Data View' tab.
+                      or change how it's sorted, check out the 'Data View' tab.
                       Want the chart to be smaller, wider, or flatter before exporting it
                       as an image? Simply adjust the chart dimensions by resizing your
                       browser window.

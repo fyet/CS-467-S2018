@@ -1,10 +1,10 @@
 <?php
   require('../login-system/sessionValidator.php');
 
-  // The session validator ensures the user has credentails in our system, but we also need to be sure a valid admin user can't visit the user portion of the site by going to 
+  // The session validator ensures the user has credentails in our system, but we also need to be sure a valid admin user can't visit the user portion of the site by going to
   // URL directly. The code below will end the session of an admin user who tries to gain access.
   if($_SESSION['accountType'] == "admin"){
-    $_SESSION = array();           // Set all session data to an empty array. Trick from https://www.youtube.com/watch?reload=9&v=E6ATLvTDRCs (could use http://php.net/manual/en/function.session-unset.php instead) 
+    $_SESSION = array();           // Set all session data to an empty array. Trick from https://www.youtube.com/watch?reload=9&v=E6ATLvTDRCs (could use http://php.net/manual/en/function.session-unset.php instead)
     session_destroy();             // Destroy the session we just started in this file - http://www.php.net/manual/en/function.session-destroy.php
     header("Location: http://18.188.194.159/award-hub/login-system/login.php?message=Admin%20Users%20May%20Not%20Access%20This%20Page");     // Re-direct the user to the login screen as they need to login.
   }
@@ -114,7 +114,7 @@
                     aria-describedby="emailHelp"
                     required>
                     <div class="valid-feedback">Looks Good!</div>
-                    <div class="invalid-feedback">Please provide a valid email address</div>
+                    <div class="invalid-feedback invalid-feedback-email">Please provide a valid email address</div>
                   </div>
                 </div>
                 <div class="form-row">
@@ -216,7 +216,7 @@
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/userScripts/manageRecip.js"></script>
+<script type="text/javascript" src="./userScripts/manageRecip.js"></script>
 <script>
     $("#editRecipbtn").addClass("active");
 </script>

@@ -180,7 +180,7 @@ $(document).ready(function(){
 
       validateItemField('#editRecipForm', '#f_nameEdit', '#subEdit');
       validateItemField('#editRecipForm', '#l_nameEdit', '#subEdit');
-      validateEmailField('#editRecipForm', '#emailEdit', '#subEdit');
+      validateEmailField('#editRecipForm', '#emailEdit', '#subEdit', email);
       validateItemField('#editRecipForm', '#job_titleEdit', '#subEdit');
       validateItemField('#editRecipForm', '#salaryEdit', '#subEdit');
 

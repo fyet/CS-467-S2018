@@ -53,6 +53,7 @@ $(document).ready(function(){
       e.preventDefault();
     });
 
+    //Credit: http://www.plus2net.com/jquery/msg-demo/password-validation.php   
     $('#pword').keyup(function(){
         var pw = $('#pword').val();
         //Regular expressions for uppercase letter, lowcase letter, and number

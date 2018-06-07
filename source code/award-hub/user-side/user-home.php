@@ -2,10 +2,10 @@
   require('../login-system/sessionValidator.php');
   $_SESSION['location'] = 0;
 
-  // The session validator ensures the user has credentails in our system, but we also need to be sure a valid admin user can't visit the user portion of the site by going to 
+  // The session validator ensures the user has credentails in our system, but we also need to be sure a valid admin user can't visit the user portion of the site by going to
   // URL directly. The code below will end the session of an admin user who tries to gain access.
   if($_SESSION['accountType'] == "admin"){
-    $_SESSION = array();           // Set all session data to an empty array. Trick from https://www.youtube.com/watch?reload=9&v=E6ATLvTDRCs (could use http://php.net/manual/en/function.session-unset.php instead) 
+    $_SESSION = array();           // Set all session data to an empty array. Trick from https://www.youtube.com/watch?reload=9&v=E6ATLvTDRCs (could use http://php.net/manual/en/function.session-unset.php instead)
     session_destroy();             // Destroy the session we just started in this file - http://www.php.net/manual/en/function.session-destroy.php
     header("Location: http://18.188.194.159/award-hub/login-system/login.php?message=Admin%20Users%20May%20Not%20Access%20This%20Page");     // Re-direct the user to the login screen as they need to login.
   }
@@ -27,7 +27,7 @@
 </head>
 <body>
 
-    <?php include("userComponents/navbar.php"); ?>
+    <?php include("userComponents/navbar.php");?>
     <div class="container-fluid">
         <div class="row">
             <?php include("userComponents/sidebar.php"); ?>
@@ -137,9 +137,9 @@
                                         <td><?php echo $award['accolade_date']; ?></td>
                                         <td><?php echo $row['f_name']; ?></td>
                                         <td><?php echo $row['l_name']; ?></td>
-                                        <td><button class="btn btn-danger btn-sm active" 
+                                        <td><button class="btn btn-danger btn-sm active"
                                             data-toggle="modal"
-                                            id="deleteButt" 
+                                            id="deleteButt"
                                             data-id="<?php echo $award['id'] ?>"
                                             data-target="#deleteAward">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M7.71 8.23l3.75 3.75-1.48 1.48-3.75-3.75-3.75 3.75L1 11.98l3.75-3.75L1 4.48 2.48 3l3.75 3.75L9.98 3l1.48 1.48-3.75 3.75z"></path></svg>
@@ -173,7 +173,7 @@
             </div>
             <div class="modal-body text-center">
                 <p>Are you sure you want to permenently delete this award?</p>
-                <input id="deleteID" 
+                <input id="deleteID"
                 style="visibility: hidden;">
             </div>
             <div class="modal-footer">
@@ -182,6 +182,54 @@
             </div>
         </div>
     </div>
+</div>
+<!-- Set initial signature modal -->
+<div  class="modal fade" id="signatureModal"
+      tabindex="-1" role="dialog"
+      aria-labelledby="signatureModal"
+      aria-hidden="true"
+      data-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signatureModalTitle">Welcome to Award Hub!</h5>
+      </div>
+      <div class="modal-body">
+
+            <!-- Code below derived from https://github.com/szimek/signature_pad/blob/master/docs/index.html -->
+            <div class="h5">Add Signature (required):</div>
+            <p>Before proceeding, please provide a copy of your signature by
+            utilizing one of the following options (your signature will only be
+            used to sign the digital certificates you create): </p>
+            <div id="signature-pad" class="signature-pad">
+                <div id="sigPadBodyUser" class="signature-pad--body">
+                  <canvas height="75" width="300"></canvas>
+                </div>
+                <div class="signature-pad--footer">
+                  <div class="description">
+                    Sign above with your mouse <br><br>
+                    <strong>or</strong><br><br>
+                    upload a '.png' file of your signature below
+                  </div>
+                </div>
+            </div>
+            <input type="hidden" id="signatureSetValue">
+            <form action='./postSig.php' method="post" name="form1" id="form1" enctype="multipart/form-data">
+              <input type="hidden" name="my_hidden" id="my_hidden">
+              <input id="sigFileUpload" type="file" class="btn btn-success" name="file"><br>
+              <span style="font-size:0.75rem;">
+                Note: Server will automatically resize signature
+                images to fit certificate field. Only '.png' files
+                will be saved.
+              </span>
+
+      </div>
+      <div class="modal-footer">
+        <input type="submit" id="submitBtn" class="btn btn-primary" value="Submit signature" disabled>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -193,6 +241,32 @@
     </script>
     <script>
         $(document).ready(function(){
+            $('#signatureSetValue').on('change', function(){
+                //open modal
+                $('#signatureModal').modal('show');
+                //Enable signature submission if signature pad is clicked on
+                $('#sigPadBodyUser').on('click', function(){
+                  $('#submitBtn').attr('disabled', false);
+                });
+
+                //Enable signature submission if file input field is changed
+                $('#sigFileUpload').on('change', function(){
+                  $('#submitBtn').attr('disabled', false);
+                });
+
+                //Hide modal after signature form submission
+                $('#submitBtn').on('submit', function(){
+                  $('#signatureModal').modal('hide');
+                });
+            });
+
+            //Check for signature in database
+            $.get('./checkForSig.php', function(response){
+              if (!response) {
+                $('#signatureSetValue').val('needSignature').trigger('change');
+              }
+            });
+
             $('#deleteAward').on('show.bs.modal', function(event){
                 var button = $(event.relatedTarget);
                 var id = button.data('id');
@@ -215,7 +289,11 @@
                     });
                 });
             });
+
+
         });
     </script>
+    <script type="text/javascript" src="./node_modules/signature_pad/example/js/signature_pad.js"></script>
+    <script type="text/javascript" src="userScripts/sigDriver.js"></script>
     <?php mysqli_close($dbc); ?>
 </body>

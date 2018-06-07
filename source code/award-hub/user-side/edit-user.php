@@ -2,10 +2,10 @@
   require('../login-system/sessionValidator.php');
   $_SESSION['location'] = 0;
 
-  // The session validator ensures the user has credentails in our system, but we also need to be sure a valid admin user can't visit the user portion of the site by going to 
+  // The session validator ensures the user has credentails in our system, but we also need to be sure a valid admin user can't visit the user portion of the site by going to
   // URL directly. The code below will end the session of an admin user who tries to gain access.
   if($_SESSION['accountType'] == "admin"){
-    $_SESSION = array();           // Set all session data to an empty array. Trick from https://www.youtube.com/watch?reload=9&v=E6ATLvTDRCs (could use http://php.net/manual/en/function.session-unset.php instead) 
+    $_SESSION = array();           // Set all session data to an empty array. Trick from https://www.youtube.com/watch?reload=9&v=E6ATLvTDRCs (could use http://php.net/manual/en/function.session-unset.php instead)
     session_destroy();             // Destroy the session we just started in this file - http://www.php.net/manual/en/function.session-destroy.php
     header("Location: http://18.188.194.159/award-hub/login-system/login.php?message=Admin%20Users%20May%20Not%20Access%20This%20Page");     // Re-direct the user to the login screen as they need to login.
   }
@@ -139,7 +139,7 @@
                                 </div>
                                 <br>
 
-                                <form action='/postSig.php' method="post" name="form1" id="form1" enctype="multipart/form-data">
+                                <form action='./postSig.php' method="post" name="form1" id="form1" enctype="multipart/form-data">
                                     <input type="hidden" name="my_hidden" id="my_hidden"/>
                                     <span>Note: Server will automatically resize image for best fit with certificates. Only 'png' files will be saved.</span><br>
                                     <input type="file" name="file"/><br><br><br>
@@ -154,8 +154,8 @@
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="/node_modules/signature_pad/example/js/signature_pad.js"></script>
-<script src="/userScripts/sigDriver.js"></script>
+<script src="./node_modules/signature_pad/example/js/signature_pad.js"></script>
+<script src="./userScripts/sigDriver.js"></script>
 <script>
     $("#manageUserbtn").addClass("active");
 </script>

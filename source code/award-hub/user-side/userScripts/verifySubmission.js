@@ -86,8 +86,17 @@ function formFieldsValid(formID) {
   var valid = true;
   $(formID + ' :input').each(function(index){
     if (!$(this).hasClass('is-valid') && $(this).prop('required')) {
-      $(this).addClass('is-invalid');
-      valid = false;
+      if ($(this).attr('type') !== 'email') {
+        $(this).addClass('is-invalid');
+        valid = false;
+      } else { //handle prepopulated email field
+        if(checkEmailFormat($(this))) {
+          $(this).addClass('is-valid'); //email is validly formatted
+        } else { //email is invalidly formatted
+          $(this).addClass('is-invalid');
+          valid = false;
+        }
+      }
     }
   });
   return valid;

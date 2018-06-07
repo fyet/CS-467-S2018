@@ -1,0 +1,169 @@
+.btn-txt{
+  display: none;
+}
+
+.list-group{
+    z-index:10;
+    display:none;
+    position:absolute;
+    color:red;
+}
+
+body {
+  padding-top: 50px;
+}
+
+.page-content {
+  padding-right: 15px;
+  padding-left: 65px;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+/*top navbar styling*/
+.topMenuBtnText {
+  display: none;
+}
+
+#topMenu svg {
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
+  fill: #282828;
+}
+
+
+/* start table styling */
+table button svg {
+  fill: white;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+/* end table styling */
+
+
+/* start mobile/general card styling */
+.card-deck {
+  margin-top: 10px;
+}
+.card {
+  min-width: 300px;
+  /*max-width: 500px;*/
+}
+.card-wrapper:hover {
+  background-color: rgba(0, 0, 0, 0.3); /*darken on hover*/
+}
+.remove-body-on-resize .card-body{
+  display: none;
+}
+/* end mobile/general card styling */
+
+
+/* start mobile/general sidebar styling */
+#sidebar { /*mobile version*/
+  position: fixed;
+  top: 51px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: block;
+  padding-top: 5px;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  background-color: #f5f5f5;
+  border-right: 1px solid #eee;
+  width: 50px;
+}
+#sidebar .sidebar-text {
+  display: none;
+}
+#sidebar svg {
+  fill: gray;
+  width: 20px;
+  height: 20px;
+}
+#sidebar a {
+  width: 50px;
+}
+
+#sidebar .active {
+  background-color: gray;
+}
+
+#sidebar .active .sidebar-text {
+  color: white;
+}
+
+#sidebar .active svg {
+  fill: white;
+}
+/* end mobile/general sidebar styling */
+
+
+/* start chart styling */
+.chart {
+  width: 100%;
+  min-height: 450px;
+}
+/* end chart styling */
+
+
+/* start mobile/general bottom report nav styling */
+#reportControls {
+  padding-right: 15px;
+  padding-left: 65px;
+}
+#reportControls .reportControlsText {
+  display: none;
+}
+#reportControls svg {
+  fill: white;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+/* end mobile/general bottom report nav styling */
+
+/* Desktop-specific styling */
+@media (min-width: 860px) {
+    .page-content {
+      padding-top: 40px;
+      padding-right: 40px;
+      padding-left: 210px;
+    }
+    #sidebar {
+        padding-top: 20px;
+        width: 170px;
+    }
+    #sidebar a {
+      width: 170px;
+    }
+    #sidebar svg {
+      fill: gray;
+      width: 40px;
+      height: 40px;
+    }
+    #sidebar .sidebar-text {
+      display: block;
+    }
+
+    .remove-body-on-resize .card-body {
+      display: initial;
+    }
+
+    #reportControls {
+      padding-right: 40px;
+      padding-left: 210px;
+    }
+    #reportControls .reportControlsText {
+      display: block;
+    }
+    #reportControls svg {
+      width: 40px;
+      height: 40px;
+    }
+    .btn-txt {
+      display: inline-block;
+    }
+}

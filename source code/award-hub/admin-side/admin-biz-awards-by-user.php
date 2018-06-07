@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<?php 
+<?php
   require '../login-system/sessionValidator.php';
 
-  // The session validator ensures the user has credentails in our system, but we also need to be sure a valid standard user can't visit the admin portion of the site by going to 
+  // The session validator ensures the user has credentails in our system, but we also need to be sure a valid standard user can't visit the admin portion of the site by going to
   // URL directly. The code below will end the session of a standard user who tries to gain access.
   if($_SESSION['accountType'] == "standard"){
-    $_SESSION = array();           // Set all session data to an empty array. Trick from https://www.youtube.com/watch?reload=9&v=E6ATLvTDRCs (could use http://php.net/manual/en/function.session-unset.php instead) 
+    $_SESSION = array();           // Set all session data to an empty array. Trick from https://www.youtube.com/watch?reload=9&v=E6ATLvTDRCs (could use http://php.net/manual/en/function.session-unset.php instead)
     session_destroy();             // Destroy the session we just started in this file - http://www.php.net/manual/en/function.session-destroy.php
     header("Location: http://18.188.194.159/award-hub/login-system/login.php?message=Standard%20Users%20May%20Not%20Access%20This%20Page");     // Re-direct the user to the login screen as they need to login.
   }
@@ -62,7 +62,19 @@
             </nav>
             <div class="tab-content" id="nav-tabContent">
               <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                <!-- column chart -->
+                <!-- chart -->
+                <div class="row mt-2">
+                  <div class="col-xl">
+                    <p style="font-size:0.75rem;">
+                      Chart tips: Hover over the graph below to interact with the data
+                      and gain more insights. If you want to see the data it's based on
+                      or change or change how it's sorted, check out the 'Data View' tab.
+                      Want the chart to be smaller, wider, or flatter before exporting it
+                      as an image? Simply adjust the chart dimensions by resizing your
+                      browser window.
+                    </p>
+                  </div>
+                </div>
                 <div class="row mt-4">
                   <div class="col-xl">
                     <div class="chart" id="chart1"></div>
@@ -75,6 +87,17 @@
                 <div class="row mt-4">
                   <div class="col-xl">
                     <div class="h5">Awards Totals by AwardHub User</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xl">
+                    <p style="font-size:0.75rem;">
+                      Click on the column headings in the table below to sort
+                      the data in ascending or descending order by that field.
+                      Any changes in the ordering of data in this table will be
+                      reflected in the corresponding graph within the 'Chart
+                      View' tab.
+                    </p>
                   </div>
                 </div>
                 <!-- end users table -->

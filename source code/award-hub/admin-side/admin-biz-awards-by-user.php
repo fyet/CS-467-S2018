@@ -75,7 +75,7 @@
                     </p>
                   </div>
                 </div>
-                <div class="row mt-4">
+                <div class="row">
                   <div class="col-xl">
                     <div class="chart" id="chart1"></div>
                     <div id='png'></div>

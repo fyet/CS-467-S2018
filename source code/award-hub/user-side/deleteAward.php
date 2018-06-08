@@ -3,7 +3,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 error_reporting(E_ALL);
 ini_set('display_errors',0);
 ini_set('log_errors',1);
-require_once('config.php');
+require_once('../database-resources/config.php');
 session_start();
 $_SESSION['location'] = 0;
 

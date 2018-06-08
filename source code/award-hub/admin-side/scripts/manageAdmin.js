@@ -5,7 +5,7 @@
  *return value: none
  */
 function loadTable(){
-  $.get('components/adminTable.php', function(data){
+  $.get('./components/adminTable.php', function(data){
     $('#adminTable').html(data);
   });
 }

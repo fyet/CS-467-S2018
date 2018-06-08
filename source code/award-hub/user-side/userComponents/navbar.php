@@ -4,7 +4,7 @@
 <nav class="navbar navbar-dark bg-dark fixed-top" id="topMenu">
   <!-- Start brand/logo element -->
   <a class="navbar-brand" href="user-home.php">
-    <img src="images/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+    <img src="../images/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
     <!-- Start responsive heading -->
     <div class="d-sm-none d-inline">
       User <!-- Appears small screens -->

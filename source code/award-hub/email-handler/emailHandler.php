@@ -7,7 +7,7 @@ use PHPMailer\PHPMailer\Exception;
 function emailHandler($recipientEmail,$subject="",$body="",$certPath=""){
 
       // The code structure below is from phpmailer's manual: https://github.com/PHPMailer/PHPMailer
-      require '../../vendor/autoload.php'; // the autoload file
+      require '/var/www/html/vendor/autoload.php'; // the autoload file
 
       $mail = new PHPMailer(true);
       try {

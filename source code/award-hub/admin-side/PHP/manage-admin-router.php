@@ -2,7 +2,7 @@
 //Establish connection with DB
 require '../../database-resources/config.php';
 // Import necessary PHPmailer classes and custom functions
-require '../../email-hanlder/emailHandler.php';
+require '../../email-handler/emailHandler.php';
 
 //Route request based on HTTP method
 switch($_SERVER['REQUEST_METHOD']) {

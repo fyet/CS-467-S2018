@@ -49,7 +49,7 @@ switch($_SERVER['REQUEST_METHOD']) {
                 system. Your temporary password is:</p>
                 <p><strong>'.$pwd.'</strong></p>
                 <p>Please login using the link provided below:</p>
-                <a href=\'http://18.188.194.159/login.php\'>http://18.188.194.159/login.php</a>';
+                <a href=\'http://18.188.194.159/award-hub/login-system/login.php\'>http://18.188.194.159/award-hub/login-system/login.php</a>';
     emailHandler($email, $subject, $msgBody);
     //Send response code back to client
     http_response_code(201);

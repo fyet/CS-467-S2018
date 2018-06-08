@@ -2,10 +2,10 @@
   require('../login-system/sessionValidator.php');
   $_SESSION['location'] = 0;
 
-  // The session validator ensures the user has credentails in our system, but we also need to be sure a valid admin user can't visit the user portion of the site by going to 
+  // The session validator ensures the user has credentails in our system, but we also need to be sure a valid admin user can't visit the user portion of the site by going to
   // URL directly. The code below will end the session of an admin user who tries to gain access.
   if($_SESSION['accountType'] == "admin"){
-    $_SESSION = array();           // Set all session data to an empty array. Trick from https://www.youtube.com/watch?reload=9&v=E6ATLvTDRCs (could use http://php.net/manual/en/function.session-unset.php instead) 
+    $_SESSION = array();           // Set all session data to an empty array. Trick from https://www.youtube.com/watch?reload=9&v=E6ATLvTDRCs (could use http://php.net/manual/en/function.session-unset.php instead)
     session_destroy();             // Destroy the session we just started in this file - http://www.php.net/manual/en/function.session-destroy.php
     header("Location: http://18.188.194.159/award-hub/login-system/login.php?message=Admin%20Users%20May%20Not%20Access%20This%20Page");     // Re-direct the user to the login screen as they need to login.
   }
@@ -34,9 +34,12 @@
     session_start();
     require_once('../database-resources/config.php');
 
-    $my_array = array("Employee of The Month", 
-      "Employee of The Year", 
-      "Employee of The Week", 
+    /* Credit:
+     * https://stackoverflow.com/questions/5189662/populate-a-drop-down-box-from-a-mysql-table-in-php
+     */
+    $my_array = array("Employee of The Month",
+      "Employee of The Year",
+      "Employee of The Week",
       "Best Dressed",
       "Awesome Teammate");
 
@@ -81,21 +84,21 @@
                       </div>
                       <div class="form-group col-sm">
                         <label for="dateAward">Date of Award:</label>
-                        <input class="form-control" 
-                              type="date" 
-                              id="dateAward" 
+                        <input class="form-control"
+                              type="date"
+                              id="dateAward"
                               name="dateAward"
-                              max='2020-1-1' 
+                              max='2020-1-1'
                               required>
                       </div>
                     </div>
                     <div class="form-row">
                       <div class="form-group col-sm">
                         <label for="recipEmail">Recipient's Email:</label>
-                        <input class="form-control" 
-                              type="text" 
-                              id="recipEmail" 
-                              name="recipEmail" 
+                        <input class="form-control"
+                              type="text"
+                              id="recipEmail"
+                              name="recipEmail"
                               value="<?php echo $row['email']; ?>"
                               readonly>
                       </div>
@@ -103,11 +106,11 @@
                     <div class="form-row">
                       <div class="form-group col-sm">
                         <label for="recipFName">Recipient's First Name:</label>
-                        <input class="form-control" 
-                              type="text" 
-                              id="recipFName" 
-                              name="recipFName" 
-                              value="<?php echo $row['f_name'] ?>" 
+                        <input class="form-control"
+                              type="text"
+                              id="recipFName"
+                              name="recipFName"
+                              value="<?php echo $row['f_name'] ?>"
                               readonly>
                       </div>
                       <div class="form-group col-sm">
@@ -129,7 +132,7 @@
         </div>
       </div>
 
-  <?php mysqli_close($dbc); 
+  <?php mysqli_close($dbc);
   unset($_SESSION["recipE"]);?>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>

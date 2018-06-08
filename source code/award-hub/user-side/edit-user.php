@@ -160,6 +160,10 @@
     $("#manageUserbtn").addClass("active");
 </script>
 <script>
+    /* Credit:
+     * http://www.plus2net.com/jquery/msg-demo/password-validation.php
+     * https://stackoverflow.com/questions/1594952/jquery-disable-enable-submit-button
+     */
     $(document).ready(function(){
         $('#pword').keyup(function(){
             var str = $('#pword').val();

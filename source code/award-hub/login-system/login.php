@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-<!-- https://www.w3schools.com/tags/tag_meta.asp -->
+<!-- Credit:
+    * https://www.w3schools.com/howto/howto_css_login_form.asp
+    * https://stackoverflow.com/questions/22658141/css-center-form-in-page-horizontally-and-vertically
+    * https://www.w3schools.com/tags/tag_meta.asp -->
 <meta charset="utf-8">
 <meta name="viewport" content="width-device-width, initial-scale=1">
 
 <style>
-
-
 input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
@@ -56,13 +56,11 @@ button {
   align-items:center;
 }
 
-
 #form_login {
 	display: table-cell;
 	text-align: center;
 	vertical-align: middle;
 }
-
 
 input {
 	text-align:center;
@@ -72,7 +70,6 @@ input {
 button:hover {
     opacity: 0.9;
 }
-
 
 .imgcontainer {
     text-align: center;
@@ -97,13 +94,11 @@ span.psw {
     padding-top: 16px;
 }
 
-
 @media screen and (max-width: 300px) {
     span.psw {
        display: block;
        float: none;
     }
-
 }
 </style>
 </head>
